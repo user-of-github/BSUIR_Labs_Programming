@@ -1,22 +1,22 @@
-
-name: Github-Action
+name: C/C++ CI
 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - name: arch make
-  # You may pin to the exact commit or the version.
-  # uses: g4bri3lDev/arch-make-action@8e88c782b4046856133af5e376697b16b3b0eaeb
-  uses: g4bri3lDev/arch-make-action@v1.24
+    - uses: actions/checkout@v2
+    - name: compiling and testing
+      run: |
+        for d in */ ; do
+        cd "$d"
+        make
+        cd ..
+        done
