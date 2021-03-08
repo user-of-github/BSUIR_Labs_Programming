@@ -20,26 +20,27 @@ void ClearConsole()
 const char kCurrency = '$';
 const double kPriceTangerine = 1.14,
         kPricePeach = 1.00,
-        kPriceGrape = 1.28;
-const double kPriceDeliveryPackage1 = 1,
+        kPriceGrape = 1.28,
+        kPriceDeliveryPackage1 = 1,
         kPriceDeliveryPackage2 = 3,
         kPriceDeliveryPackage3 = 10,
-        kPriceEveryExtraKilogram = 2;
-const double kLargeOrderDiscount = 0.1;
+        kPriceEveryExtraKilogram = 2,
+        kLargeOrderDiscount = 0.1,
+        kMaxWeightWithFixedDeliveryPrice = 20;
 
-const char kShopName[] = "eFruit.shop";
-const char kShopLicenseNumber[] = "135464885";
-const char kShopInfo[] = "Belarus , Minsk , BSUIR , FCSN\nemail@emailcom, +123 45 67 89";
+const char kShopName[] = "eFruit.shop",
+        kShopLicenseNumber[] = "135464885",
+        kShopInfo[] = "Belarus , Minsk , BSUIR , FCSN\nemail@emailcom, +123 45 67 89";
 
-const char kMenuItems[6][20] = {"Order tangerines", "Order grape", "Order peaches", "Show Cart",
-                                "Show full price", "Exit"};
+const unsigned short kMenuItemsCount = 7;
+const char kMenuItems[7][20] = {"Order tangerines", "Order grape", "Order peaches", "Show Cart",
+                                "Show full price", "Exit", "Show Shop Info"};
 
 struct eFruit *GenerateSession()
 {
     struct eFruit *new_session = malloc(sizeof(struct eFruit));
     new_session->tangerine = new_session->peach = new_session->grape = 0;
-    new_session->total_price_products = new_session->delivery_price = 0;
-    new_session->total_weight = 0;
+    new_session->total_price_products = new_session->delivery_price = new_session->total_weight = 0;
 
     return new_session;
 }
@@ -54,7 +55,7 @@ void PrintCartInfo(struct eFruit *session)
         return;
     }
 
-    printf("CURRENTLY IN THE CART: \n");
+    printf("CURRENTLY IN THE CART: \n____________________\n");
     if (session->grape > 0)
         printf("Grapes in the cart: %.3lf kg. Price: %.3lf %c\n", session->grape, session->grape * kPriceGrape,
                kCurrency);
@@ -67,17 +68,13 @@ void PrintCartInfo(struct eFruit *session)
         printf("Tangerines in the cart: %.3lf kg. Price: %.3lf %c\n", session->tangerine,
                session->tangerine * kPriceTangerine, kCurrency);
 
-    printf("\n__________________\nTotal Price: %.3lf %c\n", session->total_price_products, kCurrency);
+    printf("\n____________________\nTotal Price: %.3lf %c\n", session->total_price_products, kCurrency);
 }
 
 void UpdateTotalPrice(struct eFruit *session)
 {
-    //printf("\n t:%lf p:%lf g:%lf\n", session->tangerine, session->peach, session->grape);
     session->total_price_products =
             session->tangerine * kPriceTangerine + session->peach * kPricePeach + session->grape * kPriceGrape;
-
-   // printf("\n t:%lf p:%lf g:%lf\n", session->tangerine * kPriceTangerine, session->peach * kPricePeach, session->grape * kPriceGrape);
-   // printf("Full price current %lf", session->total_price_products);
 }
 
 void UpdateTotalWeight(struct eFruit *session)
@@ -92,7 +89,8 @@ void UpdateDeliveryCost(struct eFruit *session)
     else if (session->total_weight < 20)
         session->delivery_price = kPriceDeliveryPackage2;
     else
-        session->delivery_price = kPriceDeliveryPackage3 + kPriceEveryExtraKilogram * (session->total_weight - 20);
+        session->delivery_price = kPriceDeliveryPackage3 +
+                                  kPriceEveryExtraKilogram * (session->total_weight - kMaxWeightWithFixedDeliveryPrice);
 }
 
 void UpdateSession(struct eFruit *session)
@@ -100,7 +98,6 @@ void UpdateSession(struct eFruit *session)
     UpdateTotalWeight(session);
     UpdateTotalPrice(session);
     UpdateDeliveryCost(session);
-    //printf("Session updated %lf\n", session->total_price_products);
 }
 
 void OrderTangerines(struct eFruit *session)
@@ -108,14 +105,13 @@ void OrderTangerines(struct eFruit *session)
     double kilograms;
     printf("Price for kg of tangerines %.2lf %c.Add to Cart: ", kPriceTangerine, kCurrency);
     if (scanf("%lf", &kilograms))
-    {
         if (kilograms > 0)
         {
             session->tangerine += kilograms;
             UpdateSession(session);
             return;
         }
-    }
+
     printf("Wrong input\n");
 }
 
@@ -124,14 +120,13 @@ void OrderPeaches(struct eFruit *session)
     double kilograms;
     printf("Price for kg of peaches %.2lf %c.Add to Cart: ", kPricePeach, kCurrency);
     if (scanf("%lf", &kilograms))
-    {
         if (kilograms > 0)
         {
             session->peach += kilograms;
             UpdateSession(session);
             return;
         }
-    }
+
     printf("Wrong input\n");
 }
 
@@ -140,14 +135,13 @@ void OrderGrape(struct eFruit *session)
     double kilograms;
     printf("Price for kg of grape %.2lf %c.Add to Cart: ", kPriceGrape, kCurrency);
     if (scanf("%lf", &kilograms))
-    {
         if (kilograms > 0)
         {
             session->grape += kilograms;
             UpdateSession(session);
             return;
         }
-    }
+
     printf("Wrong input\n");
 }
 
@@ -168,16 +162,16 @@ void ShowFullPrice(struct eFruit *session)
 
     printf("Total price %.3lf %c", session->total_price_products, kCurrency);
     if (session->total_price_products > 100)
-        printf(" + discount %.1lf %%  => Total price is %.2lf %c", kLargeOrderDiscount * 100, session->total_price_products * (1 - kLargeOrderDiscount), kCurrency);
+        printf(" + discount %.1lf %%  => Total price is %.2lf %c", kLargeOrderDiscount * 100,
+               session->total_price_products * (1 - kLargeOrderDiscount), kCurrency);
     printf("\nDelivery cost: %.3lf %c\n", session->delivery_price, kCurrency);
 }
 
 void PrintMenu()
 {
     unsigned short counter;
-    for (counter = 0; counter < 6; ++counter)
-        printf("%hu %s\n", counter + 1, kMenuItems[counter]);
-
+    for (counter = 0; counter < kMenuItemsCount; ++counter)
+        printf("%hu. %s\n", counter + 1, kMenuItems[counter]);
 }
 
 void ProcessVariant(const unsigned short choosed, struct eFruit *session)
@@ -219,6 +213,12 @@ void ProcessVariant(const unsigned short choosed, struct eFruit *session)
             ClearConsole();
             return;
         }
+        case 6:
+        {
+            ClearConsole();
+            PrintShopInfo();
+            return;
+        }
         default:
             return;
     }
@@ -233,9 +233,9 @@ void Launch(struct eFruit *session)
         PrintMenu();
         scanf("%hd", &variant);
         ProcessVariant(variant - 1, session);
-        printf("\nPress any key\n");
-        getch();
         if (variant == 6)
             break;
+        printf("\nPress any key\n");
+        getch();
     }
 }
