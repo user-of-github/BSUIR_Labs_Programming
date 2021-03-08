@@ -17,3 +17,5 @@ jobs:
       run: |
         cd LR1_Z1.2_V23
         mingw32-make
+        cd ..\LR2\Z2.1_V23
+        mingw32-make
