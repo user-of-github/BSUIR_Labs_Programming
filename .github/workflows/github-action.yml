@@ -19,3 +19,5 @@ jobs:
         mingw32-make
         cd ..\LR2\Z2.1_V23
         mingw32-make
+        cd ..\Z2.2_V6
+        mingw32-make
