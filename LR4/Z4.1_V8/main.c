@@ -1,31 +1,30 @@
-
 #include "AnalyzeWords.h"
 
 extern const char *kTipContinue;
+const char kDivider = '=';
 
 int main()
 {
-    const char kDivider = '=';
-    struct ArrayData1 input_data = GetTextFromKeyboard(kDivider);
-    char *text = input_data.array;
-    size_t length = input_data.length;
+    struct OneDimensionalArrayData input_data = GetTextFromKeyboard(kDivider);
 
-    //printf('\n');
-
-    struct ArrayData2 words_data = GetWordsArray(text, length);
+    struct TwoDimensionalArrayData words_data = GetWordsArray(input_data.array, input_data.length);
     char **words = words_data.array;
     size_t number_words = words_data.length;
+    free(input_data.array);
 
-    size_t counter = 0;
-    for (counter = 0; counter < number_words; ++counter)
-    {
-        printf("%s\n", words[counter]);
-    }
+    PrintWords((const char **) words, number_words);
 
-    free(text);
+    struct TwoDimensionalArrayData inverted_words_list = GetInvertedWordsList((const char **) words, number_words);
+
+    char *response = GetFlattenArray((const char **) inverted_words_list.array, inverted_words_list.length);
+
+    printf("Inverted pairs of words: \n%s\n", response);
+
+    FreeWordsArray(words, number_words);
 
     printf("\n%s\n", kTipContinue);
     _getch();
+
     return 0;
 }
 

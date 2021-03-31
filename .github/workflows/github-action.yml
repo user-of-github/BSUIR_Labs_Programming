@@ -25,3 +25,5 @@ jobs:
         mingw32-make
         cd ..\LR4\Z4.2_V8
         mingw32-make
+        cd ..\Z4.1_V8
+        mingw32-make
