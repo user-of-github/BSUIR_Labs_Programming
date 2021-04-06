@@ -7,4 +7,5 @@ BuildTests:
 	gcc -std=c11 test.c QueueAtStore.c -o Lab5Tests.exe
 
 Clean:
-	del *.exe
+	erase Lab5.exe.exe
+	erase Lab5Tests.exe
