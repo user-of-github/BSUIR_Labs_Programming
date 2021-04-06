@@ -1,30 +1,65 @@
 #include "QueueAtStore.h"
 
-int main()
+extern const char *kTipContinue;
+
+const size_t kNamesAmount = 10;
+const char *const kNames[] = {
+        "Nikita Slutski", "Ivan Udovin", "Daniil Bondarkov",
+        "Yaroslau Suhovej", "Alexander Khrapko", "Stanislav Levankou",
+        "Maksim Katanaev", "Dmitrij Lasareu", "Dmitrij Kalinka",
+        "Anton Moroz"};
+
+
+const size_t kTotalTimeForProgram = 30 * 1000;
+
+int main(void)
 {
+    srand(time(NULL));
+
     struct Queue *test = InitializeQueue();
 
-    struct Person *person_1 = CreatePerson("Nikita Slutski");
-    Push(test, person_1);
+    clock_t start = clock();
+    size_t milliseconds, next_stop = 0;
 
-    struct Person *person_2 = CreatePerson("Daniil Bondarkov");
-    Push(test, person_2);
+    do
+    {
+        clock_t difference = clock() - start;
+        milliseconds = difference * 1000 / CLOCKS_PER_SEC;
 
-    PrintNames(test);
+        if (milliseconds <= next_stop) continue;
 
-    Pop(test);
-    PrintNames(test);
+        next_stop = milliseconds + (rand() % 5 + 1) * 1000;
 
-    Pop(test);
-    PrintNames(test);
+        if (test->size == 0)
+        {
+            size_t index = rand() % kNamesAmount;
+            printf("%s has come to queue\n", kNames[index]);
+            Push(test, CreatePerson(kNames[index]));
+        }
+        else
+        {
+            if (rand() % 10 + 1 <= 5) // add
+            {
+                size_t index = rand() % kNamesAmount;
+                printf("%s has come to queue\n", kNames[index]);
+                Push(test, CreatePerson(kNames[index]));
+            }
+            else // pop
+            {
+                printf("%s has left queue. Spent there %u seconds\n", test->first->data->name,
+                       (unsigned int) (time(NULL) - test->first->data->time));
+                Pop(test);
+            }
+        }
+        PrintNames(test);
 
-    Pop(test);
-    PrintNames(test);
+    } while (milliseconds <= kTotalTimeForProgram);
 
-    struct Person *person_3 = CreatePerson("Daniil Bondarkov");
-    Push(test, person_3);
-    PrintNames(test);
 
+    FreeQueue(test);
+
+    printf("%s\n", kTipContinue);
+    _getch();
 
     return 0;
 }

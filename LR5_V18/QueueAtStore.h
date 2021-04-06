@@ -5,10 +5,12 @@
 #include <malloc.h>
 #include <string.h>
 #include <conio.h>
+#include <time.h>
 
 struct Person
 {
     char *name;
+    time_t time;
 };
 
 struct Item
@@ -33,8 +35,6 @@ void CheckMemoryItem(const struct Person *);
 
 void CheckMemoryQueue(const struct Queue *);
 
-void CheckMemoryPointer(const struct Person *);
-
 void CheckMemoryPointerChar(const char **);
 
 struct Person *CreatePerson(const char *);
@@ -42,6 +42,8 @@ struct Person *CreatePerson(const char *);
 struct Item *CreateItem(const struct Person *);
 
 void FreeItem(struct Item *);
+
+void FreeQueue(struct Queue *);
 
 struct Queue *InitializeQueue();
 
