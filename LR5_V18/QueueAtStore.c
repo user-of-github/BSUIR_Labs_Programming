@@ -33,6 +33,18 @@ void CheckMemoryQueue(const struct Queue *queue)
         ExitFromProgram(ErrorMemory);
 }
 
+void CheckMemoryPointerPerson(const struct Person **list)
+{
+    if (list == NULL)
+        ExitFromProgram(ErrorMemory);
+}
+
+void CheckMemoryPointerChar(const char **list)
+{
+    if (list == NULL)
+        ExitFromProgram(ErrorMemory);
+}
+
 struct Person *CreatePerson(const char *name)
 {
     struct Person *response = (struct Person *) (malloc(sizeof(struct Person)));
@@ -111,4 +123,48 @@ void Pop(struct Queue *queue)
     }
 
     --queue->size;
+}
+
+struct Person **GetPeopleList(const struct Queue *queue)
+{
+    size_t length = queue->size;
+    struct Person **list = (struct Person **) (malloc(sizeof(struct Person *) * length));
+    CheckMemoryPointerPerson((const struct Person **) list);
+
+    size_t counter = 0;
+    struct Item *current;
+    for (current = queue->first; current != NULL; current = current->previous)
+    {
+        list[counter++] = current->data;
+    }
+
+    return list;
+}
+
+char **GetPeopleNameList(const struct Person **people, const size_t length)
+{
+    char **names = (char **) (malloc(sizeof(char *) * length));
+
+    size_t counter = 0;
+    for (counter = 0; counter < length; ++counter)
+        names[counter] = people[counter]->name;
+
+    return names;
+}
+
+void PrintNames(const struct Queue *queue)
+{
+    char **current_people_list = GetPeopleNameList((const struct Person **) GetPeopleList(queue), queue->size);
+
+    CheckMemoryPointerChar((const char **) current_people_list);
+    
+    size_t counter;
+    printf("___________\n");
+    for (counter = 0; counter < queue->size; ++counter)
+        printf("%s\n", current_people_list[counter]);
+    if (queue->size == 0)
+        printf("[empty]\n");
+    printf("___________\n\n");
+
+    free(current_people_list);
 }
