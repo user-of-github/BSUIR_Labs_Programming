@@ -1,6 +1,8 @@
 #ifndef LR7_Z6_2_V27_CRIME_H
 #define LR7_Z6_2_V27_CRIME_H
 
+#pragma once
+
 #include <list>
 #include "criminal.h"
 

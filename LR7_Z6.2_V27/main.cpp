@@ -2,7 +2,6 @@
 #include "crime.h"
 #include "organization.h"
 #include "criminal.h"
-#include "utilities.h"
 
 #include <windows.h>
 
@@ -17,10 +16,34 @@ int main()
                                      forward_list<CrimeType>({CrimeType::DRUG_POSSESSION, CrimeType::MURDER}),
                                      5);
     auto yakutza = Organization("Japanese Yakutza",
-                                     forward_list<CrimeType>({CrimeType::MURDER, CrimeType::ROBBERY}),
-                                     7);
-    cout << italianMafia;
-    cout << "-------\n";
-    cout << yakutza;
+                                forward_list<CrimeType>({CrimeType::MURDER, CrimeType::ROBBERY}),
+                                7);
+//    cout << italianMafia;
+////    Title: Italian Mafia
+////    Types of crimes: [ Drug possession ; Murder ; ]
+////    Rating: ★★★★★
+
+    auto escobar = CriminalPerson("Pablo", "Escobar ", " Emilio ", "the king of cocaine", 0, 0, "black", "", "Columbia",
+                                  "Drug-dealer", forward_list<string>({"rus", "eng"}), CriminalStatus::EX_CRIMINAL);
+//  cout << escobar;
+//  [
+//        Name: Pablo
+//        Surname: Escobar
+//        Patronymic: Emilio
+//        NickName: the king of cocaine
+//        Weight: UNKNOWN
+//        Height: UNKNOWN
+//        Hair color: black
+//        Status: Ex-criminal
+//  ]
+//
+//
+
+    escobar.IncludeToCriminalOrganization(&yakutza);
+    escobar.IncludeToCriminalOrganization(&italianMafia);
+
+    auto organizationsOfEscobar = escobar.GetOrganizationsList();
+
+
     return 0;
 }
