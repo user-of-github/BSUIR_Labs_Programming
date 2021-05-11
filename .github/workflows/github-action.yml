@@ -1,31 +1,19 @@
-name: C/C++ CI
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+name: Codecov
+on: [push, pull_request]
 jobs:
-  build:
-
-    runs-on: windows-latest
-
+  run:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: compiling and testing
-      run: |
-        cd LR1_Z1.2_V23
-        mingw32-make
-        cd ..\LR2\Z2.1_V23
-        mingw32-make
-        cd ..\Z2.2_V6
-        mingw32-make
-        cd ..\..\LR3_Z3.2_V8
-        mingw32-make
-        cd ..\LR4\Z4.2_V8
-        mingw32-make
-        cd ..\Z4.1_V8
-        mingw32-make
-        cd ..\..\LR5_V18
-        mingw32-make
+      - name: Fetch
+        uses: actions/checkout@master
+      - name: Test
+        run: |
+           cd LR7_Z6.2_V27
+           g++ -ftest-coverage -fprofile-arcs -O0 -o test test.cpp interpol.cpp
+          ./test
+          gcov -abcfu lib.c
+      - name: Upload
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./lib.c.gcov
+          token: ${{ 358e5ad1-9211-4b0f-9b45-2dd9e0daf9be }}
