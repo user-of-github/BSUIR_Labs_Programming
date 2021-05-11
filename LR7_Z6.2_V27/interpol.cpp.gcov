@@ -1,0 +1,2629 @@
+        -:    0:Source:interpol.cpp
+        -:    0:Graph:interpol.gcno
+        -:    0:Data:interpol.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef LR7_Z6_2_V27_INTERPOL_CPP
+        -:    2:#define LR7_Z6_2_V27_INTERPOL_CPP
+        -:    3:
+        -:    4:#include "interpol.h"
+        -:    5:
+        -:    6:
+        -:    7:
+        -:    8:////////////////////////////////////////////////////////
+        -:    9:
+        -:   10:
+        -:   11:
+function _Z8LeftTrimNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 27 returned 100% blocks executed 71%
+       27:   12:string LeftTrim(string s)
+        -:   13:{
+function _ZZ8LeftTrimNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlhE_clEh called 27 returned 100% blocks executed 100%
+       27:   14:    s.erase(s.begin(), find_if(s.begin(), s.end(), [](unsigned char ch) {
+call    0 returned 27
+    $$$$$:   14-block  0
+unconditional  1 never executed
+    $$$$$:   14-block  1
+unconditional  2 never executed
+       27:   15:        return !isspace(ch);
+       27:   15-block  0
+unconditional  0 taken 27
+       54:   16:    }));
+       27:   16-block  0
+call    0 returned 27
+call    1 returned 27
+call    2 returned 27
+branch  3 taken 27 (fallthrough)
+branch  4 taken 0 (throw)
+       27:   16-block  1
+call    5 returned 27
+call    6 returned 27
+call    7 returned 27
+branch  8 taken 27 (fallthrough)
+branch  9 taken 0 (throw)
+    $$$$$:   16-block  2
+unconditional 10 never executed
+    $$$$$:   16-block  3
+unconditional 11 never executed
+        -:   17:
+       27:   18:    return s;
+       27:   18-block  0
+call    0 returned 27
+unconditional  1 taken 27
+        -:   19:}
+        -:   20:
+function _Z9RightTrimNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 27 returned 100% blocks executed 61%
+       27:   21:string RightTrim(string s)
+        -:   22:{
+function _ZZ9RightTrimNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlhE_clEh called 26 returned 100% blocks executed 100%
+       27:   23:    s.erase(find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
+call    0 returned 27
+call    1 returned 27
+call    2 returned 27
+branch  3 taken 27 (fallthrough)
+branch  4 taken 0 (throw)
+    $$$$$:   23-block  0
+unconditional  5 never executed
+    $$$$$:   23-block  1
+unconditional  6 never executed
+    $$$$$:   23-block  2
+unconditional  7 never executed
+    $$$$$:   23-block  3
+unconditional  8 never executed
+       26:   24:        return !isspace(ch);
+       26:   24-block  0
+unconditional  0 taken 26
+       54:   25:    }).base(), s.end());
+       27:   25-block  0
+call    0 returned 27
+call    1 returned 27
+       27:   25-block  1
+call    2 returned 27
+call    3 returned 27
+call    4 returned 27
+branch  5 taken 27 (fallthrough)
+branch  6 taken 0 (throw)
+    $$$$$:   25-block  2
+unconditional  7 never executed
+    $$$$$:   25-block  3
+unconditional  8 never executed
+    $$$$$:   25-block  4
+unconditional  9 never executed
+        -:   26:
+       27:   27:    return s;
+       27:   27-block  0
+call    0 returned 27
+unconditional  1 taken 27
+        -:   28:}
+        -:   29:
+function _Z4TrimNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 26 returned 100% blocks executed 72%
+       26:   30:string Trim(string s)
+        -:   31:{
+       26:   32:    s = LeftTrim(s);
+       26:   32-block  0
+call    0 returned 26
+call    1 returned 26
+branch  2 taken 26 (fallthrough)
+branch  3 taken 0 (throw)
+       26:   32-block  1
+call    4 returned 26
+call    5 returned 26
+call    6 returned 26
+    $$$$$:   32-block  2
+call    7 never executed
+    $$$$$:   32-block  3
+call    8 never executed
+       26:   33:    s = RightTrim(s);
+call    0 returned 26
+call    1 returned 26
+branch  2 taken 26 (fallthrough)
+branch  3 taken 0 (throw)
+       26:   33-block  0
+call    4 returned 26
+call    5 returned 26
+call    6 returned 26
+    $$$$$:   33-block  1
+call    7 never executed
+        -:   34:
+       26:   35:    return s;
+call    0 returned 26
+unconditional  1 taken 26
+        -:   36:}
+        -:   37:
+        -:   38:
+function _Z17CrimeTypeToStringB5cxx11RK9CrimeType called 4 returned 100% blocks executed 34%
+        4:   39:string CrimeTypeToString(const CrimeType &type)
+        -:   40:{
+        4:   41:    switch (type)
+        4:   41-block  0
+branch  0 taken 0
+branch  1 taken 1
+branch  2 taken 0
+branch  3 taken 2
+branch  4 taken 1
+branch  5 taken 0
+        -:   42:    {
+    #####:   43:        case CrimeType::BURGLARY:
+    #####:   44:            return "BURGLARY";
+    %%%%%:   44-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   44-block  1
+call    4 never executed
+unconditional  5 never executed
+    $$$$$:   44-block  2
+call    6 never executed
+    $$$$$:   44-block  3
+call    7 never executed
+        1:   45:        case CrimeType::ROBBERY:
+        1:   46:            return "ROBBERY";
+        1:   46-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   46-block  1
+call    4 returned 1
+unconditional  5 taken 1
+    $$$$$:   46-block  2
+call    6 never executed
+    $$$$$:   46-block  3
+call    7 never executed
+    #####:   47:        case CrimeType::THEFT:
+    #####:   48:            return "THEFT";
+    %%%%%:   48-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   48-block  1
+call    4 never executed
+unconditional  5 never executed
+    $$$$$:   48-block  2
+call    6 never executed
+    $$$$$:   48-block  3
+call    7 never executed
+        2:   49:        case CrimeType::MURDER:
+        2:   50:            return "MURDER";
+        2:   50-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   50-block  1
+call    4 returned 2
+unconditional  5 taken 2
+    $$$$$:   50-block  2
+call    6 never executed
+    $$$$$:   50-block  3
+call    7 never executed
+        1:   51:        case CrimeType::DRUG_POSSESSION:
+        1:   52:            return "DRUG_POSSESSION";
+        1:   52-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   52-block  1
+call    4 returned 1
+unconditional  5 taken 1
+    $$$$$:   52-block  2
+call    6 never executed
+    $$$$$:   52-block  3
+call    7 never executed
+    #####:   53:        default:
+    #####:   54:            return "";
+    %%%%%:   54-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   54-block  1
+call    4 never executed
+unconditional  5 never executed
+    $$$$$:   54-block  2
+call    6 never executed
+        -:   55:    }
+        -:   56:}
+        -:   57:
+function _Z17StringToCrimeTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 4 returned 100% blocks executed 77%
+        4:   58:CrimeType StringToCrimeType(const string &type)
+        -:   59:{
+        8:   60:    string a = Trim(type);
+        4:   60-block  0
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+        4:   60-block  1
+call    3 returned 4
+branch  4 taken 4 (fallthrough)
+branch  5 taken 0 (throw)
+        4:   60-block  2
+call    6 returned 4
+    $$$$$:   60-block  3
+unconditional  7 never executed
+        4:   61:    if (a == "BURGLARY")
+call    0 returned 4
+branch  1 taken 0 (fallthrough)
+branch  2 taken 4
+    #####:   62:        return CrimeType::BURGLARY;
+    %%%%%:   62-block  0
+unconditional  0 never executed
+        -:   63:
+        4:   64:    if (a == "ROBBERY")
+        4:   64-block  0
+call    0 returned 4
+branch  1 taken 1 (fallthrough)
+branch  2 taken 3
+        1:   65:        return CrimeType::ROBBERY;
+        1:   65-block  0
+unconditional  0 taken 1
+        -:   66:
+        3:   67:    if (a == "THEFT")
+        3:   67-block  0
+call    0 returned 3
+branch  1 taken 0 (fallthrough)
+branch  2 taken 3
+    #####:   68:        return CrimeType::THEFT;
+    %%%%%:   68-block  0
+unconditional  0 never executed
+        -:   69:
+        3:   70:    if (a == "MURDER")
+        3:   70-block  0
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:   71:        return CrimeType::MURDER;
+        2:   71-block  0
+unconditional  0 taken 2
+        -:   72:
+        1:   73:    if (a == "DRUG_POSSESSION")
+        1:   73-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:   74:        return CrimeType::DRUG_POSSESSION;
+        1:   74-block  0
+unconditional  0 taken 1
+        -:   75:
+    #####:   76:    return CrimeType::BURGLARY;
+    %%%%%:   76-block  0
+unconditional  0 never executed
+        -:   77:}
+        -:   78:
+function _Z22CriminalStatusToStringB5cxx11RK14CriminalStatus called 3 returned 100% blocks executed 37%
+        3:   79:string CriminalStatusToString(const CriminalStatus &status)
+        -:   80:{
+        3:   81:    switch (status)
+        3:   81-block  0
+branch  0 taken 2
+branch  1 taken 0
+branch  2 taken 1
+branch  3 taken 0
+        -:   82:    {
+        2:   83:        case CriminalStatus::EX_CRIMINAL:
+        2:   84:            return "EX_CRIMINAL";
+        2:   84-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   84-block  1
+call    4 returned 2
+unconditional  5 taken 2
+    $$$$$:   84-block  2
+call    6 never executed
+    $$$$$:   84-block  3
+call    7 never executed
+    #####:   85:        case CriminalStatus::ACTIVE_CRIMINAL:
+    #####:   86:            return "ACTIVE_CRIMINAL";
+    %%%%%:   86-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   86-block  1
+call    4 never executed
+unconditional  5 never executed
+    $$$$$:   86-block  2
+call    6 never executed
+    $$$$$:   86-block  3
+call    7 never executed
+        1:   87:        case CriminalStatus::PRISONER_CRIMINAL:
+        1:   88:            return "PRISONER_CRIMINAL";
+        1:   88-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   88-block  1
+call    4 returned 1
+unconditional  5 taken 1
+    $$$$$:   88-block  2
+call    6 never executed
+    $$$$$:   88-block  3
+call    7 never executed
+    #####:   89:        default:
+    #####:   90:            return "";
+    %%%%%:   90-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   90-block  1
+call    4 never executed
+unconditional  5 never executed
+    $$$$$:   90-block  2
+call    6 never executed
+        -:   91:    }
+        -:   92:}
+        -:   93:
+function _Z22StringToCriminalStatusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 100% blocks executed 82%
+        2:   94:CriminalStatus StringToCriminalStatus(const string &str)
+        -:   95:{
+        2:   96:    if (str == "PRISONER_CRIMINAL")
+        2:   96-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        1:   97:        return CriminalStatus::PRISONER_CRIMINAL;
+        1:   97-block  0
+unconditional  0 taken 1
+        -:   98:
+        1:   99:    if (str == "ACTIVE_CRIMINAL")
+        1:   99-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    #####:  100:        return CriminalStatus::ACTIVE_CRIMINAL;
+    %%%%%:  100-block  0
+unconditional  0 never executed
+        -:  101:
+        1:  102:    if (str == "EX_CRIMINAL")
+        1:  102-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:  103:        return CriminalStatus::EX_CRIMINAL;
+        1:  103-block  0
+unconditional  0 taken 1
+        -:  104:
+        -:  105:
+    #####:  106:    return CriminalStatus::PRISONER_CRIMINAL;
+    %%%%%:  106-block  0
+unconditional  0 never executed
+        -:  107:}
+        -:  108:
+        -:  109:
+        -:  110:const string Crime::kDefaultPlace = "unknown";
+        -:  111:set<string> Crime::all_ids_;
+        -:  112:
+        -:  113:
+function _ZN5CrimeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4listIP14CriminalPersonSaISA_EEES7_S7_ called 1 returned 100% blocks executed 54%
+        1:  114:Crime::Crime(const string &place, const list<CriminalPerson *> &participants, const string &consequences,
+        1:  115:             const string &comments) :
+        -:  116:        place_(Trim(place)), participants_(participants), consequences_(Trim(consequences)),
+        1:  117:        experts_comments_(Trim(comments))
+        1:  117-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  117-block  1
+call    4 returned 1
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:  117-block  2
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:  117-block  3
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+        1:  117-block  4
+call   14 returned 1
+call   15 returned 1
+branch 16 taken 1 (fallthrough)
+branch 17 taken 0 (throw)
+        1:  117-block  5
+call   18 returned 1
+branch 19 taken 1 (fallthrough)
+branch 20 taken 0 (throw)
+        1:  117-block  6
+call   21 returned 1
+call   22 returned 1
+    $$$$$:  117-block  7
+call   23 never executed
+    $$$$$:  117-block  8
+call   24 never executed
+    $$$$$:  117-block  9
+call   25 never executed
+    $$$$$:  117-block 10
+unconditional 26 never executed
+    $$$$$:  117-block 11
+call   27 never executed
+    $$$$$:  117-block 12
+unconditional 28 never executed
+    $$$$$:  117-block 13
+call   29 never executed
+    $$$$$:  117-block 14
+call   30 never executed
+    $$$$$:  117-block 15
+call   31 never executed
+    $$$$$:  117-block 16
+call   32 never executed
+    $$$$$:  117-block 17
+call   33 never executed
+        -:  118:{
+        1:  119:    if (this->place_.empty())
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:  120:        this->place_ = kDefaultPlace;
+        1:  120-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  121:
+        1:  122:    this->id_ = GenerateId(kMaximumIdLength + rand() % (kMaximumIdLength - kMinimumIdLength));
+        1:  122-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        1:  123:    all_ids_.insert(id_);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  124:}
+        1:  124-block  0
+unconditional  0 taken 1
+        -:  125:
+function _ZN5CrimeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RKNS0_4listIP14CriminalPersonSaISA_EEES7_S7_ called 3 returned 100% blocks executed 44%
+        3:  126:Crime::Crime(const string &place, const string &id, const list<CriminalPerson *> &participants,
+        -:  127:             const string &consequences,
+        3:  128:             const string &comments) :
+        -:  129:        place_(Trim(place)), participants_(participants), consequences_(Trim(consequences)),
+        3:  130:        experts_comments_(Trim(comments)), id_(id)
+        3:  130-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:  130-block  1
+call    4 returned 3
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+        3:  130-block  2
+call    8 returned 3
+branch  9 taken 3 (fallthrough)
+branch 10 taken 0 (throw)
+        3:  130-block  3
+call   11 returned 3
+branch 12 taken 3 (fallthrough)
+branch 13 taken 0 (throw)
+        3:  130-block  4
+call   14 returned 3
+call   15 returned 3
+branch 16 taken 3 (fallthrough)
+branch 17 taken 0 (throw)
+        3:  130-block  5
+call   18 returned 3
+branch 19 taken 3 (fallthrough)
+branch 20 taken 0 (throw)
+        3:  130-block  6
+call   21 returned 3
+call   22 returned 3
+branch 23 taken 3 (fallthrough)
+branch 24 taken 0 (throw)
+    $$$$$:  130-block  7
+call   25 never executed
+    $$$$$:  130-block  8
+call   26 never executed
+    $$$$$:  130-block  9
+call   27 never executed
+    $$$$$:  130-block 10
+unconditional 28 never executed
+    $$$$$:  130-block 11
+call   29 never executed
+    $$$$$:  130-block 12
+unconditional 30 never executed
+    $$$$$:  130-block 13
+call   31 never executed
+    $$$$$:  130-block 14
+call   32 never executed
+    $$$$$:  130-block 15
+call   33 never executed
+    $$$$$:  130-block 16
+call   34 never executed
+    $$$$$:  130-block 17
+call   35 never executed
+        -:  131:{
+        3:  132:    all_ids_.insert((id));
+        3:  132-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  133:}
+        3:  133-block  0
+unconditional  0 taken 3
+        -:  134:
+function _ZN5Crime14AddParticipantEP14CriminalPerson called 0 returned 0% blocks executed 0%
+    #####:  135:bool Crime::AddParticipant(CriminalPerson *new_person)
+        -:  136:{
+    #####:  137:    if (all_ids_.count(new_person->Id()))
+    %%%%%:  137-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  137-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    $$$$$:  137-block  2
+call    7 never executed
+    #####:  138:        return true;
+    %%%%%:  138-block  0
+unconditional  0 never executed
+    #####:  139:    this->participants_.push_front(new_person);
+    %%%%%:  139-block  0
+call    0 never executed
+    #####:  140:    return true;
+unconditional  0 never executed
+        -:  141:}
+        -:  142:
+function _ZN5Crime15CheckIfIdExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 100%
+        1:  143:bool Crime::CheckIfIdExists(const string &check) noexcept
+        -:  144:{
+        1:  145:    return (find(begin(Crime::all_ids_), end(Crime::all_ids_), check) != end(Crime::all_ids_));
+        1:  145-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+unconditional  5 taken 1
+        -:  146:}
+        -:  147:
+function _ZN5Crime10GenerateIdB5cxx11ERKy called 1 returned 100% blocks executed 77%
+        1:  148:string Crime::GenerateId(const size_t &length) noexcept
+        -:  149:{
+        1:  150:    static const string kSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        1:  150-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  150-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:  150-block  2
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+unconditional 10 taken 1
+        1:  151:    static const size_t kSymbolsNumber = kSymbols.size();
+        1:  151-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  151-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:  151-block  2
+call    5 returned 1
+call    6 returned 1
+unconditional  7 taken 1
+        -:  152:
+        1:  153:    string response;
+        1:  153-block  0
+call    0 returned 1
+        -:  154:
+        1:  155:    srand(time(NULL));
+call    0 returned 1
+call    1 returned 1
+        -:  156:
+       23:  157:    for (size_t counter = 0; counter < length; ++counter)
+unconditional  0 taken 1
+       23:  157-block  0
+branch  1 taken 22 (fallthrough)
+branch  2 taken 1
+unconditional  3 taken 22
+       22:  158:        response += kSymbols[rand() % kSymbolsNumber];
+       22:  158-block  0
+call    0 returned 22
+call    1 returned 22
+call    2 returned 22
+        -:  159:
+       1*:  160:    while (CheckIfIdExists(response))
+        1:  160-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  160-block  1
+unconditional  3 never executed
+        -:  161:    {
+    #####:  162:        response = "";
+    %%%%%:  162-block  0
+call    0 never executed
+        -:  163:
+    #####:  164:        for (size_t counter = 0; counter < length; ++counter)
+unconditional  0 never executed
+    %%%%%:  164-block  0
+branch  1 never executed
+branch  2 never executed
+unconditional  3 never executed
+    #####:  165:            response += kSymbols[rand() % kSymbolsNumber];
+    %%%%%:  165-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:  166:    }
+        -:  167:
+        1:  168:    return response;
+        1:  168-block  0
+unconditional  0 taken 1
+        -:  169:}
+        -:  170:
+function _ZNK5Crime2IdB5cxx11Ev called 8 returned 100% blocks executed 100%
+        8:  171:string Crime::Id() const noexcept
+        -:  172:{
+        8:  173:    return this->id_;
+        8:  173-block  0
+call    0 returned 8
+        -:  174:}
+        -:  175:
+function _ZNK5Crime5PlaceB5cxx11Ev called 3 returned 100% blocks executed 100%
+        3:  176:string Crime::Place() const noexcept
+        -:  177:{
+        3:  178:    return this->place_;
+        3:  178-block  0
+call    0 returned 3
+        -:  179:}
+        -:  180:
+function _ZNK5Crime12ParticipantsB5cxx11Ev called 5 returned 100% blocks executed 100%
+        5:  181:list<CriminalPerson *> Crime::Participants() const noexcept
+        -:  182:{
+        5:  183:    return this->participants_;
+        5:  183-block  0
+call    0 returned 5
+        -:  184:}
+        -:  185:
+function _ZNK5Crime8CommentsB5cxx11Ev called 3 returned 100% blocks executed 100%
+        3:  186:string Crime::Comments() const noexcept
+        -:  187:{
+        3:  188:    return this->experts_comments_;
+        3:  188-block  0
+call    0 returned 3
+        -:  189:}
+        -:  190:
+function _ZNK5Crime12ConsequencesB5cxx11Ev called 3 returned 100% blocks executed 100%
+        3:  191:string Crime::Consequences() const noexcept
+        -:  192:{
+        3:  193:    return this->consequences_;
+        3:  193-block  0
+call    0 returned 3
+        -:  194:}
+        -:  195://////////////////////////////////////////////////////////////
+        -:  196:
+        -:  197:
+        -:  198:
+        -:  199:
+        -:  200:set<string> Organization::all_ids_;
+        -:  201:
+        -:  202:
+function _ZN12Organization16IsSuitableRatingERKt called 1 returned 100% blocks executed 83%
+        1:  203:constexpr bool Organization::IsSuitableRating(const unsigned short &rating)
+        -:  204:{
+       1*:  205:    return (rating <= kMaximumPossibleRating && rating >= kMinimumPossibleRating);
+        1:  205-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  205-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  205-block  2
+unconditional  4 taken 1
+    %%%%%:  205-block  3
+unconditional  5 never executed
+        1:  205-block  4
+unconditional  6 taken 1
+        -:  206:}
+        -:  207:
+function _ZN12OrganizationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4listI9CrimeTypeSaIS9_EEERKt called 1 returned 100% blocks executed 67%
+        1:  208:Organization::Organization(const string &title, const list<CrimeType> &action_types,
+        1:  209:                           const unsigned short &rating) :
+        1:  210:        title_(title), action_types_(action_types), rating_(rating)
+        1:  210-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+    $$$$$:  210-block  1
+call    5 never executed
+    $$$$$:  210-block  2
+call    6 never executed
+    $$$$$:  210-block  3
+call    7 never executed
+        -:  211:{
+        1:  212:    this->id_ = GenerateId(kMaximumIdLength + rand() % (kMaximumIdLength - kMinimumIdLength));
+        1:  212-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        1:  213:    all_ids_.insert(id_);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  214:}
+        1:  214-block  0
+unconditional  0 taken 1
+        -:  215:
+function _ZN12OrganizationC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4listI9CrimeTypeSaIS9_EEERKtS7_ called 2 returned 100% blocks executed 58%
+        2:  216:Organization::Organization(const string &title, const list<CrimeType> &action_types,
+        2:  217:                           const unsigned short &rating, const string &id) :
+        2:  218:        title_(title), action_types_(action_types), rating_(rating)
+        2:  218-block  0
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+branch  3 taken 2 (fallthrough)
+branch  4 taken 0 (throw)
+    $$$$$:  218-block  1
+call    5 never executed
+    $$$$$:  218-block  2
+call    6 never executed
+    $$$$$:  218-block  3
+call    7 never executed
+        -:  219:{
+        2:  220:    this->id_ = id;
+        2:  220-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  221:    all_ids_.insert(id);
+        2:  221-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  222:}
+        2:  222-block  0
+unconditional  0 taken 2
+        -:  223:
+function _ZN12Organization11ChangeTitleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 85%
+        1:  224:bool Organization::ChangeTitle(string title)
+        -:  225:{
+        1:  226:    title = Trim(title);
+        1:  226-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  226-block  1
+call    4 returned 1
+call    5 returned 1
+call    6 returned 1
+    $$$$$:  226-block  2
+call    7 never executed
+        -:  227:
+        1:  228:    if (!title.empty())
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:  229:        this->title_ = title;
+        1:  229-block  0
+call    0 returned 1
+unconditional  1 taken 1
+        -:  230:
+        1:  231:    return true;
+        1:  231-block  0
+unconditional  0 taken 1
+        1:  231-block  1
+unconditional  1 taken 1
+        -:  232:}
+        -:  233:
+function _ZN12Organization14AddActionsTypeERK9CrimeType called 1 returned 100% blocks executed 90%
+        1:  234:bool Organization::AddActionsType(const CrimeType &action_type)
+        -:  235:{
+        3:  236:    if (find_if(begin(this->action_types_), end(this->action_types_),
+function _ZZN12Organization14AddActionsTypeERK9CrimeTypeENKUlRKT_E_clIS0_EEDaS5_ called 2 returned 100% blocks executed 100%
+        3:  237:                [&](const auto &type) { return type == action_type; }) !=
+        2:  237-block  0
+unconditional  0 taken 2
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  237-block  1
+call    6 returned 1
+        2:  238:        end(this->action_types_))
+        1:  238-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    #####:  239:        this->action_types_.push_back(action_type);
+    %%%%%:  239-block  0
+call    0 never executed
+unconditional  1 never executed
+        -:  240:
+        1:  241:    return true;
+        1:  241-block  0
+unconditional  0 taken 1
+        1:  241-block  1
+unconditional  1 taken 1
+        -:  242:}
+        -:  243:
+function _ZN12Organization12UpdateRatingERKt called 1 returned 100% blocks executed 100%
+        1:  244:bool Organization::UpdateRating(const unsigned short &rating)
+        -:  245:{
+        1:  246:    if (this->IsSuitableRating(rating))
+        1:  246-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:  247:        this->rating_ = rating;
+        1:  247-block  0
+unconditional  0 taken 1
+        -:  248:
+        1:  249:    return true;
+        1:  249-block  0
+unconditional  0 taken 1
+        -:  250:}
+        -:  251:
+function _ZlsRSoRK12Organization called 0 returned 0% blocks executed 0%
+    #####:  252:ostream &operator<<(ostream &os, const Organization &organization)
+        -:  253:{
+    #####:  254:    os << "Title: " << organization.title_ << "\n";
+    %%%%%:  254-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  255:    os << "Types of crimes: [ ";
+call    0 never executed
+    #####:  256:    for (const auto item : organization.action_types_)
+call    0 never executed
+call    1 never executed
+unconditional  2 never executed
+    %%%%%:  256-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  256-block  1
+call    6 never executed
+    #####:  257:        os << CrimeTypeToString(item) << " ; ";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  257-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  257-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  257-block  2
+call    9 never executed
+call   10 never executed
+unconditional 11 never executed
+    $$$$$:  257-block  3
+call   12 never executed
+    $$$$$:  257-block  4
+unconditional 13 never executed
+    #####:  258:    os << "]\n";
+    %%%%%:  258-block  0
+call    0 never executed
+    #####:  259:    os << "Rating: ";
+call    0 never executed
+    #####:  260:    for (unsigned short counter = 0; counter < organization.rating_; ++counter)
+unconditional  0 never executed
+    %%%%%:  260-block  0
+branch  1 never executed
+branch  2 never executed
+unconditional  3 never executed
+    #####:  261:        os << "★";
+    %%%%%:  261-block  0
+call    0 never executed
+    #####:  262:    os << "\n";
+    %%%%%:  262-block  0
+call    0 never executed
+        -:  263:
+    #####:  264:    return os;
+unconditional  0 never executed
+    %%%%%:  264-block  0
+unconditional  1 never executed
+        -:  265:}
+        -:  266:
+function _ZNK12Organization5TitleB5cxx11Ev called 3 returned 100% blocks executed 100%
+        3:  267:string Organization::Title() const noexcept
+        -:  268:{
+        3:  269:    return this->title_;
+        3:  269-block  0
+call    0 returned 3
+        -:  270:}
+        -:  271:
+function _ZNK12Organization6RatingEv called 3 returned 100% blocks executed 100%
+        3:  272:unsigned short Organization::Rating() const
+        -:  273:{
+        3:  274:    return this->rating_;
+        3:  274-block  0
+unconditional  0 taken 3
+        -:  275:}
+        -:  276:
+function _ZNK12Organization10CrimeTypesB5cxx11Ev called 4 returned 100% blocks executed 100%
+        4:  277:list<CrimeType> Organization::CrimeTypes() const
+        -:  278:{
+        4:  279:    return this->action_types_;
+        4:  279-block  0
+call    0 returned 4
+        -:  280:}
+        -:  281:
+        -:  282:
+function _ZN12Organization15CheckIfIdExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 100%
+        1:  283:bool Organization::CheckIfIdExists(const string &check) noexcept
+        -:  284:{
+        1:  285:    return (find(begin(Organization::all_ids_), end(Organization::all_ids_), check) != end(Organization::all_ids_));
+        1:  285-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+unconditional  5 taken 1
+        -:  286:}
+        -:  287:
+function _ZN12Organization10GenerateIdB5cxx11ERKy called 1 returned 100% blocks executed 77%
+        1:  288:string Organization::GenerateId(const size_t &length) noexcept
+        -:  289:{
+        1:  290:    static const string kSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        1:  290-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  290-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:  290-block  2
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+unconditional 10 taken 1
+        1:  291:    static const size_t kSymbolsNumber = kSymbols.size();
+        1:  291-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  291-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:  291-block  2
+call    5 returned 1
+call    6 returned 1
+unconditional  7 taken 1
+        -:  292:
+        1:  293:    string response;
+        1:  293-block  0
+call    0 returned 1
+        -:  294:
+        1:  295:    srand(time(NULL));
+call    0 returned 1
+call    1 returned 1
+        -:  296:
+       23:  297:    for (size_t counter = 0; counter < length; ++counter)
+unconditional  0 taken 1
+       23:  297-block  0
+branch  1 taken 22 (fallthrough)
+branch  2 taken 1
+unconditional  3 taken 22
+       22:  298:        response += kSymbols[rand() % kSymbolsNumber];
+       22:  298-block  0
+call    0 returned 22
+call    1 returned 22
+call    2 returned 22
+        -:  299:
+       1*:  300:    while (CheckIfIdExists(response))
+        1:  300-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  300-block  1
+unconditional  3 never executed
+        -:  301:    {
+    #####:  302:        response = "";
+    %%%%%:  302-block  0
+call    0 never executed
+        -:  303:
+    #####:  304:        for (size_t counter = 0; counter < length; ++counter)
+unconditional  0 never executed
+    %%%%%:  304-block  0
+branch  1 never executed
+branch  2 never executed
+unconditional  3 never executed
+    #####:  305:            response += kSymbols[rand() % kSymbolsNumber];
+    %%%%%:  305-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:  306:    }
+        -:  307:
+        1:  308:    return response;
+        1:  308-block  0
+unconditional  0 taken 1
+        -:  309:}
+        -:  310:
+function _ZNK12Organization2IdB5cxx11Ev called 7 returned 100% blocks executed 100%
+        7:  311:string Organization::Id() const noexcept
+        -:  312:{
+        7:  313:    return this->id_;
+        7:  313-block  0
+call    0 returned 7
+        -:  314:}
+        -:  315:
+        -:  316://////////////////////////////////////////////////////////////
+        -:  317:
+        -:  318:
+        -:  319:
+        -:  320:set<string> CriminalPerson::all_ids_;
+        -:  321:
+        -:  322:
+function _ZN14CriminalPersonC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RK14CriminalStatus called 1 returned 100% blocks executed 57%
+        1:  323:CriminalPerson::CriminalPerson(const string &name, const string &surname,
+        1:  324:                               const CriminalStatus &status) : name_(Trim(name)), surname_(Trim(surname)),
+        1:  325:                                                               status_(status)
+        1:  325-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  325-block  1
+call    4 returned 1
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:  325-block  2
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:  325-block  3
+call   11 returned 1
+call   12 returned 1
+call   13 returned 1
+    $$$$$:  325-block  4
+call   14 never executed
+    $$$$$:  325-block  5
+call   15 never executed
+    $$$$$:  325-block  6
+call   16 never executed
+    $$$$$:  325-block  7
+unconditional 17 never executed
+    $$$$$:  325-block  8
+call   18 never executed
+    $$$$$:  325-block  9
+call   19 never executed
+    $$$$$:  325-block 10
+call   20 never executed
+    $$$$$:  325-block 11
+call   21 never executed
+        -:  326:{
+        -:  327:
+        1:  328:    srand(time(NULL));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  328-block  0
+call    3 returned 1
+        -:  329:
+        1:  330:    this->id_ = GenerateId(kMaximumIdLength + rand() % (kMaximumIdLength - kMinimumIdLength));
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        1:  331:    all_ids_.insert(id_);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  332:}
+        1:  332-block  0
+unconditional  0 taken 1
+        -:  333:
+function _ZN14CriminalPersonC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_RK14CriminalStatus called 3 returned 100% blocks executed 46%
+        3:  334:CriminalPerson::CriminalPerson(const string &name, const string &surname, const string &id,
+        3:  335:                               const CriminalStatus &status) : name_(Trim(name)), surname_(Trim(surname)),
+        3:  336:                                                               status_(status), id_(id)
+        3:  336-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:  336-block  1
+call    4 returned 3
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+        3:  336-block  2
+call    8 returned 3
+branch  9 taken 3 (fallthrough)
+branch 10 taken 0 (throw)
+        3:  336-block  3
+call   11 returned 3
+call   12 returned 3
+branch 13 taken 3 (fallthrough)
+branch 14 taken 0 (throw)
+        3:  336-block  4
+call   15 returned 3
+    $$$$$:  336-block  5
+call   16 never executed
+    $$$$$:  336-block  6
+call   17 never executed
+    $$$$$:  336-block  7
+call   18 never executed
+    $$$$$:  336-block  8
+unconditional 19 never executed
+    $$$$$:  336-block  9
+call   20 never executed
+    $$$$$:  336-block 10
+call   21 never executed
+    $$$$$:  336-block 11
+call   22 never executed
+    $$$$$:  336-block 12
+call   23 never executed
+        -:  337:{
+        3:  338:    all_ids_.insert(id);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  339:}
+        3:  339-block  0
+unconditional  0 taken 3
+        -:  340:
+function _ZlsRSoRK14CriminalPerson called 0 returned 0% blocks executed 0%
+    #####:  341:ostream &operator<<(ostream &os, const CriminalPerson &person)
+        -:  342:{
+    #####:  343:    os << "[\n";
+    %%%%%:  343-block  0
+call    0 never executed
+    #####:  344:    os << "\tName: " << (!person.name_.empty() ? person.name_ : "UNKNOWN") << '\n';
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  344-block  0
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  344-block  1
+call    7 never executed
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  344-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  344-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  344-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  344-block  5
+call   20 never executed
+unconditional 21 never executed
+    $$$$$:  344-block  6
+call   22 never executed
+    $$$$$:  344-block  7
+unconditional 23 never executed
+    $$$$$:  344-block  8
+branch 24 never executed
+branch 25 never executed
+    $$$$$:  344-block  9
+call   26 never executed
+unconditional 27 never executed
+    $$$$$:  344-block 10
+call   28 never executed
+    #####:  345:    os << "\tSurname: " << (!person.surname_.empty() ? person.surname_ : "UNKNOWN") << '\n';
+    %%%%%:  345-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  345-block  1
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:  345-block  2
+call    7 never executed
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  345-block  3
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  345-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  345-block  5
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  345-block  6
+call   20 never executed
+unconditional 21 never executed
+    $$$$$:  345-block  7
+call   22 never executed
+    $$$$$:  345-block  8
+unconditional 23 never executed
+    $$$$$:  345-block  9
+branch 24 never executed
+branch 25 never executed
+    $$$$$:  345-block 10
+call   26 never executed
+unconditional 27 never executed
+    $$$$$:  345-block 11
+call   28 never executed
+    #####:  346:    os << "\tStatus: " << CriminalStatusToString(person.status_) << '\n';
+    %%%%%:  346-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:  346-block  1
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  346-block  2
+call    8 never executed
+    $$$$$:  346-block  3
+call    9 never executed
+    #####:  347:    os << "]\n";
+call    0 never executed
+        -:  348:
+    #####:  349:    return os;
+unconditional  0 never executed
+    %%%%%:  349-block  0
+unconditional  1 never executed
+        -:  350:}
+        -:  351:
+function _ZN14CriminalPerson29IncludeToCriminalOrganizationEP12Organization called 2 returned 100% blocks executed 100%
+        2:  352:void CriminalPerson::IncludeToCriminalOrganization(Organization *new_organization)
+        -:  353:{
+        2:  354:    this->organizations_.push_back(new_organization);
+        2:  354-block  0
+call    0 returned 2
+        2:  355:}
+        -:  356:
+function _ZNK14CriminalPerson8FullNameB5cxx11Ev called 4 returned 100% blocks executed 78%
+        4:  357:string CriminalPerson::FullName() const
+        -:  358:{
+        8:  359:    return this->name_ + " " + this->surname_;
+        4:  359-block  0
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 4 (fallthrough)
+branch  3 taken 0 (throw)
+        4:  359-block  1
+call    4 returned 4
+unconditional  5 taken 4
+        4:  359-block  2
+unconditional  6 taken 4
+    $$$$$:  359-block  3
+call    7 never executed
+        -:  360:}
+        -:  361:
+        -:  362:
+function _ZN14CriminalPerson13OrganizationsB5cxx11Ev called 4 returned 100% blocks executed 100%
+        4:  363:list<Organization *> &CriminalPerson::Organizations()
+        -:  364:{
+        4:  365:    return this->organizations_;
+        4:  365-block  0
+unconditional  0 taken 4
+        -:  366:}
+        -:  367:
+function _ZN14CriminalPerson15CheckIfIdExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 100% blocks executed 100%
+        1:  368:bool CriminalPerson::CheckIfIdExists(const string &check) noexcept
+        -:  369:{
+        1:  370:    return (find(begin(CriminalPerson::all_ids_), end(CriminalPerson::all_ids_), check) !=
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        2:  371:            end(CriminalPerson::all_ids_));
+        1:  371-block  0
+call    0 returned 1
+unconditional  1 taken 1
+        1:  371-block  1
+unconditional  2 taken 1
+        -:  372:}
+        -:  373:
+function _ZN14CriminalPerson10GenerateIdB5cxx11ERKy called 1 returned 100% blocks executed 77%
+        1:  374:string CriminalPerson::GenerateId(const size_t &length) noexcept
+        -:  375:{
+        1:  376:    static const string kSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        1:  376-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  376-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:  376-block  2
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+unconditional 10 taken 1
+        1:  377:    static const size_t kSymbolsNumber = kSymbols.size();
+        1:  377-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  377-block  1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0
+        1:  377-block  2
+call    5 returned 1
+call    6 returned 1
+unconditional  7 taken 1
+        -:  378:
+        1:  379:    string response;
+        1:  379-block  0
+call    0 returned 1
+        -:  380:
+        1:  381:    srand(time(NULL));
+call    0 returned 1
+call    1 returned 1
+        -:  382:
+       32:  383:    for (size_t counter = 0; counter < length; ++counter)
+unconditional  0 taken 1
+       32:  383-block  0
+branch  1 taken 31 (fallthrough)
+branch  2 taken 1
+unconditional  3 taken 31
+       31:  384:        response += kSymbols[rand() % kSymbolsNumber];
+       31:  384-block  0
+call    0 returned 31
+call    1 returned 31
+call    2 returned 31
+        -:  385:
+       1*:  386:    while (CheckIfIdExists(response))
+        1:  386-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  386-block  1
+unconditional  3 never executed
+        -:  387:    {
+    #####:  388:        response = "";
+    %%%%%:  388-block  0
+call    0 never executed
+        -:  389:
+    #####:  390:        for (size_t counter = 0; counter < length; ++counter)
+unconditional  0 never executed
+    %%%%%:  390-block  0
+branch  1 never executed
+branch  2 never executed
+unconditional  3 never executed
+    #####:  391:            response += kSymbols[rand() % kSymbolsNumber];
+    %%%%%:  391-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:  392:    }
+        -:  393:
+        1:  394:    return response;
+        1:  394-block  0
+unconditional  0 taken 1
+        -:  395:}
+        -:  396:
+function _ZNK14CriminalPerson2IdB5cxx11Ev called 9 returned 100% blocks executed 100%
+        9:  397:string CriminalPerson::Id() const noexcept
+        -:  398:{
+        9:  399:    return this->id_;
+        9:  399-block  0
+call    0 returned 9
+        -:  400:}
+        -:  401:
+function _ZNK14CriminalPerson6StatusEv called 4 returned 100% blocks executed 100%
+        4:  402:CriminalStatus CriminalPerson::Status() const noexcept
+        -:  403:{
+        4:  404:    return this->status_;
+        4:  404-block  0
+unconditional  0 taken 4
+        -:  405:}
+        -:  406:
+        -:  407:////////////////////////////////////////////////////////
+        -:  408:////////////////////////////////////////////////////////
+        -:  409:
+        -:  410:
+        -:  411:
+function _ZN8DataBase14RemoveCriminalEP14CriminalPerson called 0 returned 0% blocks executed 0%
+    #####:  412:void DataBase::RemoveCriminal(CriminalPerson *to_remove)
+        -:  413:{
+    #####:  414:    if (to_remove == nullptr ||
+    %%%%%:  414-block  0
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  414-block  1
+unconditional  4 never executed
+    %%%%%:  414-block  2
+unconditional  5 never executed
+    #####:  415:        find(begin(this->criminals_), end(this->criminals_), to_remove) == end(this->criminals_))
+    %%%%%:  415-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  415-block  1
+call    6 never executed
+    %%%%%:  415-block  2
+branch  7 never executed
+branch  8 never executed
+    $$$$$:  415-block  3
+unconditional  9 never executed
+    $$$$$:  415-block  4
+call   10 never executed
+    #####:  416:        return;
+    %%%%%:  416-block  0
+unconditional  0 never executed
+        -:  417:
+    #####:  418:    this->criminals_ids_.erase(to_remove->Id());
+    %%%%%:  418-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  418-block  1
+call    4 never executed
+    $$$$$:  418-block  2
+call    5 never executed
+    #####:  419:    this->criminals_.remove(to_remove);
+call    0 never executed
+unconditional  1 never executed
+        -:  420:}
+        -:  421:
+function _ZN8DataBase11RemoveCrimeEP5Crime called 0 returned 0% blocks executed 0%
+    #####:  422:void DataBase::RemoveCrime(Crime *to_remove)
+        -:  423:{
+    #####:  424:    if (to_remove == nullptr ||
+    %%%%%:  424-block  0
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  424-block  1
+unconditional  4 never executed
+    %%%%%:  424-block  2
+unconditional  5 never executed
+    #####:  425:        find(begin(this->crimes_), end(this->crimes_), to_remove) == end(this->crimes_))
+    %%%%%:  425-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  425-block  1
+call    6 never executed
+    %%%%%:  425-block  2
+branch  7 never executed
+branch  8 never executed
+    $$$$$:  425-block  3
+unconditional  9 never executed
+    $$$$$:  425-block  4
+call   10 never executed
+    #####:  426:        return;
+    %%%%%:  426-block  0
+unconditional  0 never executed
+        -:  427:
+    #####:  428:    this->crimes_ids_.erase(to_remove->Id());
+    %%%%%:  428-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  428-block  1
+call    4 never executed
+    $$$$$:  428-block  2
+call    5 never executed
+    #####:  429:    this->crimes_.remove(to_remove);
+call    0 never executed
+unconditional  1 never executed
+        -:  430:}
+        -:  431:
+function _ZN8DataBase18RemoveOrganizationEP12Organization called 0 returned 0% blocks executed 0%
+    #####:  432:void DataBase::RemoveOrganization(Organization *to_remove)
+        -:  433:{
+    #####:  434:    if (to_remove == nullptr ||
+    %%%%%:  434-block  0
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  434-block  1
+unconditional  4 never executed
+    %%%%%:  434-block  2
+unconditional  5 never executed
+    #####:  435:        find(begin(this->organizations_), end(this->organizations_), to_remove) == end(this->organizations_))
+    %%%%%:  435-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  435-block  1
+call    6 never executed
+    %%%%%:  435-block  2
+branch  7 never executed
+branch  8 never executed
+    $$$$$:  435-block  3
+unconditional  9 never executed
+    $$$$$:  435-block  4
+call   10 never executed
+    #####:  436:        return;
+    %%%%%:  436-block  0
+unconditional  0 never executed
+        -:  437:
+    #####:  438:    this->organizations_ids_.erase(to_remove->Id());
+    %%%%%:  438-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  438-block  1
+call    4 never executed
+    $$$$$:  438-block  2
+call    5 never executed
+    #####:  439:    this->organizations_.remove(to_remove);
+call    0 never executed
+unconditional  1 never executed
+        -:  440:}
+        -:  441:
+function _ZN8DataBase11AddCriminalEP14CriminalPerson called 3 returned 100% blocks executed 64%
+        3:  442:bool DataBase::AddCriminal(CriminalPerson *to_add)
+        -:  443:{
+        3:  444:    if (criminals_ids_.count(to_add->Id()))
+        3:  444-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:  444-block  1
+call    4 returned 3
+branch  5 taken 1 (fallthrough)
+branch  6 taken 2
+    $$$$$:  444-block  2
+call    7 never executed
+    $$$$$:  444-block  3
+call    8 never executed
+        1:  445:        return true;
+        1:  445-block  0
+unconditional  0 taken 1
+        -:  446:
+        2:  447:    this->criminals_.push_back(to_add);
+        2:  447-block  0
+call    0 returned 2
+        2:  448:    this->criminals_ids_.insert(make_pair(to_add->Id(), to_add));
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  448-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  448-block  1
+call    7 returned 2
+call    8 returned 2
+    $$$$$:  448-block  2
+call    9 never executed
+    $$$$$:  448-block  3
+unconditional 10 never executed
+    $$$$$:  448-block  4
+call   11 never executed
+        2:  449:    return true;
+unconditional  0 taken 2
+        -:  450:}
+        -:  451:
+function _ZN8DataBase8AddCrimeEP5Crime called 3 returned 100% blocks executed 64%
+        3:  452:bool DataBase::AddCrime(Crime *to_add)
+        -:  453:{
+        3:  454:    if (crimes_ids_.count(to_add->Id()))
+        3:  454-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:  454-block  1
+call    4 returned 3
+branch  5 taken 1 (fallthrough)
+branch  6 taken 2
+    $$$$$:  454-block  2
+call    7 never executed
+    $$$$$:  454-block  3
+call    8 never executed
+        1:  455:        return true;
+        1:  455-block  0
+unconditional  0 taken 1
+        -:  456:
+        2:  457:    this->crimes_.push_back(to_add);
+        2:  457-block  0
+call    0 returned 2
+        2:  458:    this->crimes_ids_.insert(make_pair(to_add->Id(), to_add));
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  458-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  458-block  1
+call    7 returned 2
+call    8 returned 2
+    $$$$$:  458-block  2
+call    9 never executed
+    $$$$$:  458-block  3
+unconditional 10 never executed
+    $$$$$:  458-block  4
+call   11 never executed
+        2:  459:    return true;
+unconditional  0 taken 2
+        -:  460:}
+        -:  461:
+function _ZN8DataBase15AddOrganizationEP12Organization called 2 returned 100% blocks executed 64%
+        2:  462:bool DataBase::AddOrganization(Organization *to_add)
+        -:  463:{
+        2:  464:    this->organizations_.push_back(to_add);
+        2:  464-block  0
+call    0 returned 2
+        2:  465:    this->organizations_ids_.insert(make_pair(to_add->Id(), to_add));
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  465-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  465-block  1
+call    7 returned 2
+call    8 returned 2
+    $$$$$:  465-block  2
+call    9 never executed
+    $$$$$:  465-block  3
+unconditional 10 never executed
+    $$$$$:  465-block  4
+call   11 never executed
+        2:  466:    return true;
+unconditional  0 taken 2
+        2:  466-block  0
+unconditional  1 taken 2
+        -:  467:}
+        -:  468:
+function _ZN8DataBase16FindCriminalByIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 6 returned 100% blocks executed 100%
+        6:  469:CriminalPerson *DataBase::FindCriminalById(const string &id)
+        -:  470:{
+        6:  471:    return (this->criminals_ids_[id]);
+        6:  471-block  0
+call    0 returned 6
+unconditional  1 taken 6
+        -:  472:}
+        -:  473:
+function _ZN8DataBase13FindCrimeByIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 5 returned 100% blocks executed 100%
+        5:  474:Crime *DataBase::FindCrimeById(const string &id)
+        -:  475:{
+        5:  476:    return (this->crimes_ids_[id]);
+        5:  476-block  0
+call    0 returned 5
+unconditional  1 taken 5
+        -:  477:}
+        -:  478:
+function _ZN8DataBase20FindOrganizationByIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 8 returned 100% blocks executed 100%
+        8:  479:Organization *DataBase::FindOrganizationById(const string &id)
+        -:  480:{
+        8:  481:    return (this->organizations_ids_[id]);
+        8:  481-block  0
+call    0 returned 8
+unconditional  1 taken 8
+        -:  482:}
+        -:  483:
+function _ZN8DataBase12OpenReadFileEv called 1 returned 100% blocks executed 75%
+        1:  484:void DataBase::OpenReadFile()
+        -:  485:{
+        1:  486:    this->read_ = ifstream(this->url_.c_str());
+        1:  486-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:  486-block  1
+call    5 returned 1
+    $$$$$:  486-block  2
+call    6 never executed
+        1:  487:}
+unconditional  0 taken 1
+        -:  488:
+function _ZN8DataBase13CloseReadFileEv called 1 returned 100% blocks executed 100%
+        1:  489:void DataBase::CloseReadFile()
+        -:  490:{
+        1:  491:    this->read_.close();
+        1:  491-block  0
+call    0 returned 1
+        1:  492:}
+        -:  493:
+function _ZN8DataBase13OpenWriteFileEv called 1 returned 100% blocks executed 100%
+        1:  494:void DataBase::OpenWriteFile()
+        -:  495:{
+        1:  496:    this->write_.open(this->url_, std::ios::out | std::ios::trunc);
+        1:  496-block  0
+call    0 returned 1
+call    1 returned 1
+        1:  497:}
+        -:  498:
+function _ZN8DataBase14CloseWriteFileEv called 1 returned 100% blocks executed 100%
+        1:  499:void DataBase::CloseWriteFile()
+        -:  500:{
+        1:  501:    this->write_.close();
+        1:  501-block  0
+call    0 returned 1
+        1:  502:}
+        -:  503:
+function _ZN8DataBase17ReadOrganizationsEv called 1 returned 100% blocks executed 68%
+        1:  504:void DataBase::ReadOrganizations()
+        -:  505:{
+        -:  506:    size_t organizations_number;
+        1:  507:    this->read_ >> organizations_number;
+        1:  507-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  508:
+        2:  509:    string name, temp, id;
+        1:  509-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        1:  509-block  1
+call    3 returned 1
+call    4 returned 1
+call    5 returned 1
+    $$$$$:  509-block  2
+call    6 never executed
+    $$$$$:  509-block  3
+call    7 never executed
+    $$$$$:  509-block  4
+call    8 never executed
+        -:  510:    size_t temp_number, rank;
+        3:  511:    for (size_t counter = 0; counter < organizations_number; ++counter)
+unconditional  0 taken 1
+        3:  511-block  0
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+unconditional  3 taken 2
+        -:  512:    {
+        2:  513:        this->read_ >> name;
+        2:  513-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  514:        this->read_ >> temp_number;
+        2:  514-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  515:        auto temp_list = list<CrimeType>();
+        2:  515-block  0
+call    0 returned 2
+        2:  515-block  1
+call    1 returned 2
+    $$$$$:  515-block  2
+call    2 never executed
+        6:  516:        for (size_t i = 0; i < temp_number; ++i)
+unconditional  0 taken 2
+        6:  516-block  0
+branch  1 taken 4 (fallthrough)
+branch  2 taken 2
+        -:  517:        {
+        4:  518:            this->read_ >> temp;
+        4:  518-block  0
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  519:            temp_list.push_back(StringToCrimeType(temp));
+        4:  519-block  0
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  519-block  1
+call    3 returned 4
+branch  4 taken 4 (fallthrough)
+branch  5 taken 0 (throw)
+        4:  519-block  2
+unconditional  6 taken 4
+    $$$$$:  519-block  3
+unconditional  7 never executed
+        -:  520:        }
+        2:  521:        this->read_ >> rank;
+        2:  521-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  522:        this->read_ >> id;
+        2:  522-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  523:
+        2:  524:        auto *j = new Organization(name, temp_list, rank, id);
+        2:  524-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  524-block  1
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:  524-block  2
+call    6 never executed
+    $$$$$:  524-block  3
+unconditional  7 never executed
+        2:  525:        this->AddOrganization(j);
+        2:  525-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  526:    }
+        1:  527:}
+unconditional  0 taken 1
+        -:  528:
+function _ZN8DataBase13ReadCriminalsEv called 1 returned 100% blocks executed 70%
+        1:  529:void DataBase::ReadCriminals()
+        -:  530:{
+        -:  531:    size_t criminals_number;
+        1:  532:    this->read_ >> criminals_number;
+        1:  532-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  533:
+        2:  534:    string name, surname, status, id, temp;
+        1:  534-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+        1:  534-block  1
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:  534-block  2
+call   10 never executed
+    $$$$$:  534-block  3
+call   11 never executed
+    $$$$$:  534-block  4
+call   12 never executed
+    $$$$$:  534-block  5
+call   13 never executed
+    $$$$$:  534-block  6
+call   14 never executed
+        -:  535:    size_t temp_number, rank;
+        3:  536:    for (size_t counter = 0; counter < criminals_number; ++counter)
+unconditional  0 taken 1
+        3:  536-block  0
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:  536-block  1
+unconditional  3 taken 2
+        -:  537:    {
+        2:  538:        this->read_ >> name;
+        2:  538-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  539:        this->read_ >> surname;
+        2:  539-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  540:        this->read_ >> status;
+        2:  540-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  541:        this->read_ >> id;
+        2:  541-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  542:        this->read_ >> temp_number;
+        2:  542-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  543:        auto *j = new CriminalPerson(name, surname, id, StringToCriminalStatus(status));
+        2:  543-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  543-block  1
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        2:  543-block  2
+call    6 returned 2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 0 (throw)
+    $$$$$:  543-block  3
+call    9 never executed
+    $$$$$:  543-block  4
+unconditional 10 never executed
+        -:  544:
+        4:  545:        for (size_t i = 0; i < temp_number; ++i)
+        2:  545-block  0
+unconditional  0 taken 2
+        4:  545-block  1
+branch  1 taken 2 (fallthrough)
+branch  2 taken 2
+        2:  545-block  2
+unconditional  3 taken 2
+        -:  546:        {
+        2:  547:            this->read_ >> temp;
+        2:  547-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  548:            j->IncludeToCriminalOrganization(FindOrganizationById(temp));
+        2:  548-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  548-block  1
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  549:        }
+        2:  550:        this->AddCriminal(j);
+        2:  550-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  551:    }
+        1:  552:}
+unconditional  0 taken 1
+        -:  553:
+function _ZN8DataBase10ReadCrimesEv called 1 returned 100% blocks executed 67%
+        1:  554:void DataBase::ReadCrimes()
+        -:  555:{
+        -:  556:    size_t crimes_number;
+        -:  557:
+        2:  558:    string name, desc, desc2, temp, id;
+        1:  558-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+        1:  558-block  1
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+    $$$$$:  558-block  2
+call   10 never executed
+    $$$$$:  558-block  3
+call   11 never executed
+    $$$$$:  558-block  4
+call   12 never executed
+    $$$$$:  558-block  5
+call   13 never executed
+    $$$$$:  558-block  6
+call   14 never executed
+        -:  559:    size_t temp_number;
+        -:  560:
+        1:  561:    this->read_ >> crimes_number;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  562:
+        3:  563:    for (size_t counter = 0; counter < crimes_number; ++counter)
+        1:  563-block  0
+unconditional  0 taken 1
+        3:  563-block  1
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+unconditional  3 taken 2
+        -:  564:    {
+        2:  565:        this->read_ >> name;
+        2:  565-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  566:        this->read_ >> id;
+        2:  566-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  567:        this->read_ >> temp_number;
+        2:  567-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  568:        list<CriminalPerson *> a;
+        2:  568-block  0
+call    0 returned 2
+        2:  568-block  1
+call    1 returned 2
+    $$$$$:  568-block  2
+call    2 never executed
+        -:  569:
+        4:  570:        for (size_t i = 0; i < temp_number; ++i)
+unconditional  0 taken 2
+        4:  570-block  0
+branch  1 taken 2 (fallthrough)
+branch  2 taken 2
+        -:  571:        {
+        2:  572:            this->read_ >> temp;
+        2:  572-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  573:            a.push_back(FindCriminalById(temp));
+        2:  573-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  573-block  1
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        2:  573-block  2
+unconditional  6 taken 2
+    $$$$$:  573-block  3
+unconditional  7 never executed
+        -:  574:        }
+        -:  575:
+        2:  576:        this->read_ >> desc >> desc2;
+        2:  576-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  576-block  1
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  577:
+        2:  578:        auto *j = new Crime(name, id, a, desc, desc2);
+        2:  578-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  578-block  1
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:  578-block  2
+call    6 never executed
+        2:  579:        this->AddCrime(j);
+        2:  579-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  580:    }
+        1:  581:}
+unconditional  0 taken 1
+        -:  582:
+function _ZN8DataBase5StartEv called 1 returned 100% blocks executed 100%
+        1:  583:void DataBase::Start()
+        -:  584:{
+        1:  585:    this->OpenReadFile();
+        1:  585-block  0
+call    0 returned 1
+        1:  586:    this->ReadOrganizations();
+call    0 returned 1
+        1:  587:    this->ReadCriminals();
+call    0 returned 1
+        1:  588:    this->ReadCrimes();
+call    0 returned 1
+        1:  589:}
+        -:  590:
+function _ZN8DataBase6FinishEv called 1 returned 100% blocks executed 100%
+        1:  591:void DataBase::Finish()
+        -:  592:{
+        1:  593:    this->CloseReadFile();
+        1:  593-block  0
+call    0 returned 1
+        1:  594:    this->OpenWriteFile();
+call    0 returned 1
+        1:  595:    this->WriteOrganizations();
+call    0 returned 1
+        1:  596:    this->WriteCriminals();
+call    0 returned 1
+        1:  597:    this->WriteCrimes();
+call    0 returned 1
+        1:  598:    this->CloseWriteFile();
+call    0 returned 1
+        1:  599:    this->FreeMemory();
+call    0 returned 1
+        1:  600:}
+        -:  601:
+function _ZN8DataBase18WriteOrganizationsEv called 1 returned 100% blocks executed 72%
+        1:  602:void DataBase::WriteOrganizations()
+        -:  603:{
+        1:  604:    this->write_ << this->organizations_.size() << '\n';
+        1:  604-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        3:  605:    for (const auto &org : this->organizations_)
+call    0 returned 1
+call    1 returned 1
+unconditional  2 taken 1
+        3:  605-block  0
+call    3 returned 3
+branch  4 taken 2 (fallthrough)
+branch  5 taken 1
+        2:  605-block  1
+call    6 returned 2
+        -:  606:    {
+        2:  607:        this->write_ << org->Title() << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  607-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  607-block  1
+call    7 returned 2
+    $$$$$:  607-block  2
+call    8 never executed
+    $$$$$:  607-block  3
+unconditional  9 never executed
+        2:  608:        this->write_ << org->CrimeTypes().size() << ' ';
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  608-block  0
+call    3 returned 2
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  608-block  1
+call    7 returned 2
+branch  8 taken 2 (fallthrough)
+branch  9 taken 0 (throw)
+        2:  608-block  2
+call   10 returned 2
+    $$$$$:  608-block  3
+call   11 never executed
+    $$$$$:  608-block  4
+unconditional 12 never executed
+        6:  609:        for (const auto &type : org->CrimeTypes())
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  609-block  0
+call    3 returned 2
+call    4 returned 2
+unconditional  5 taken 2
+        6:  609-block  1
+call    6 returned 6
+branch  7 taken 4 (fallthrough)
+branch  8 taken 2
+        4:  609-block  2
+call    9 returned 4
+        2:  609-block  3
+call   10 returned 2
+    $$$$$:  609-block  4
+call   11 never executed
+        4:  610:            this->write_ << CrimeTypeToString(type) << ' ';
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  610-block  0
+call    3 returned 4
+branch  4 taken 4 (fallthrough)
+branch  5 taken 0 (throw)
+        4:  610-block  1
+call    6 returned 4
+branch  7 taken 4 (fallthrough)
+branch  8 taken 0 (throw)
+        4:  610-block  2
+call    9 returned 4
+call   10 returned 4
+unconditional 11 taken 4
+    $$$$$:  610-block  3
+call   12 never executed
+    $$$$$:  610-block  4
+unconditional 13 never executed
+        -:  611:
+        2:  612:        this->write_ << org->Rating() << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  612-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  613:        this->write_ << org->Id() << '\n';
+        2:  613-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  613-block  1
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  613-block  2
+call    7 returned 2
+call    8 returned 2
+unconditional  9 taken 2
+    $$$$$:  613-block  3
+call   10 never executed
+    $$$$$:  613-block  4
+unconditional 11 never executed
+        -:  614:    }
+        1:  615:}
+        1:  615-block  0
+unconditional  0 taken 1
+        -:  616:
+function _ZN8DataBase14WriteCriminalsEv called 1 returned 100% blocks executed 74%
+        1:  617:void DataBase::WriteCriminals()
+        -:  618:{
+        1:  619:    this->write_ << this->criminals_.size() << '\n';
+        1:  619-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        3:  620:    for (const auto &cr : this->criminals_)
+call    0 returned 1
+call    1 returned 1
+unconditional  2 taken 1
+        3:  620-block  0
+call    3 returned 3
+branch  4 taken 2 (fallthrough)
+branch  5 taken 1
+        2:  620-block  1
+call    6 returned 2
+        2:  620-block  2
+call    7 returned 2
+unconditional  8 taken 2
+        -:  621:    {
+        2:  622:        this->write_ << cr->FullName() << ' ';
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  622-block  0
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        2:  622-block  1
+call    6 returned 2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 0 (throw)
+        2:  622-block  2
+call    9 returned 2
+    $$$$$:  622-block  3
+call   10 never executed
+    $$$$$:  622-block  4
+unconditional 11 never executed
+        2:  623:        this->write_ << CriminalStatusToString(cr->Status()) << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  623-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  623-block  1
+call    7 returned 2
+branch  8 taken 2 (fallthrough)
+branch  9 taken 0 (throw)
+        2:  623-block  2
+call   10 returned 2
+    $$$$$:  623-block  3
+call   11 never executed
+    $$$$$:  623-block  4
+unconditional 12 never executed
+    $$$$$:  623-block  5
+unconditional 13 never executed
+        2:  624:        this->write_ << cr->Id() << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  624-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  624-block  1
+call    7 returned 2
+    $$$$$:  624-block  2
+call    8 never executed
+    $$$$$:  624-block  3
+unconditional  9 never executed
+        2:  625:        this->write_ << cr->Organizations().size() << ' ';
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+branch  3 taken 2 (fallthrough)
+branch  4 taken 0 (throw)
+        2:  625-block  0
+call    5 returned 2
+branch  6 taken 2 (fallthrough)
+branch  7 taken 0 (throw)
+        4:  626:        for (const auto &org : cr->Organizations())
+        2:  626-block  0
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+unconditional  3 taken 2
+        4:  626-block  1
+call    4 returned 4
+branch  5 taken 2 (fallthrough)
+branch  6 taken 2
+        2:  626-block  2
+call    7 returned 2
+        2:  627:            this->write_ << org->Id() << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  627-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  627-block  1
+call    7 returned 2
+call    8 returned 2
+unconditional  9 taken 2
+    $$$$$:  627-block  2
+call   10 never executed
+    $$$$$:  627-block  3
+unconditional 11 never executed
+        2:  628:        this->write_ << '\n';
+        2:  628-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  629:    }
+        1:  630:}
+        1:  630-block  0
+unconditional  0 taken 1
+        -:  631:
+function _ZN8DataBase11WriteCrimesEv called 1 returned 100% blocks executed 68%
+        1:  632:void DataBase::WriteCrimes()
+        -:  633:{
+        1:  634:    this->write_ << this->crimes_.size() << '\n';
+        1:  634-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        3:  635:    for (const auto &cr : this->crimes_)
+call    0 returned 1
+call    1 returned 1
+unconditional  2 taken 1
+        3:  635-block  0
+call    3 returned 3
+branch  4 taken 2 (fallthrough)
+branch  5 taken 1
+        2:  635-block  1
+call    6 returned 2
+        -:  636:    {
+        2:  637:        this->write_ << cr->Place() << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  637-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  637-block  1
+call    7 returned 2
+    $$$$$:  637-block  2
+call    8 never executed
+    $$$$$:  637-block  3
+unconditional  9 never executed
+        2:  638:        this->write_ << cr->Id() << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  638-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  638-block  1
+call    7 returned 2
+    $$$$$:  638-block  2
+call    8 never executed
+    $$$$$:  638-block  3
+unconditional  9 never executed
+        2:  639:        this->write_ << cr->Participants().size() << ' ';
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+branch  3 taken 2 (fallthrough)
+branch  4 taken 0 (throw)
+        2:  639-block  0
+call    5 returned 2
+branch  6 taken 2 (fallthrough)
+branch  7 taken 0 (throw)
+        2:  639-block  1
+call    8 returned 2
+    $$$$$:  639-block  2
+call    9 never executed
+    $$$$$:  639-block  3
+unconditional 10 never executed
+        4:  640:        for (const auto &participant : cr->Participants())
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+unconditional  3 taken 2
+        4:  640-block  0
+call    4 returned 4
+branch  5 taken 2 (fallthrough)
+branch  6 taken 2
+        2:  640-block  1
+call    7 returned 2
+        2:  640-block  2
+call    8 returned 2
+    $$$$$:  640-block  3
+call    9 never executed
+        2:  641:            this->write_ << participant->Id() << ' ';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  641-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  641-block  1
+call    7 returned 2
+call    8 returned 2
+unconditional  9 taken 2
+    $$$$$:  641-block  2
+call   10 never executed
+    $$$$$:  641-block  3
+unconditional 11 never executed
+        -:  642:
+        2:  643:        this->write_ << cr->Consequences() << ' ' << cr->Comments() << '\n';
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  643-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:  643-block  1
+call    7 returned 2
+call    8 returned 2
+branch  9 taken 2 (fallthrough)
+branch 10 taken 0 (throw)
+        2:  643-block  2
+call   11 returned 2
+branch 12 taken 2 (fallthrough)
+branch 13 taken 0 (throw)
+        2:  643-block  3
+call   14 returned 2
+call   15 returned 2
+call   16 returned 2
+unconditional 17 taken 2
+    $$$$$:  643-block  4
+call   18 never executed
+    $$$$$:  643-block  5
+unconditional 19 never executed
+    $$$$$:  643-block  6
+call   20 never executed
+    $$$$$:  643-block  7
+unconditional 21 never executed
+        -:  644:    }
+        1:  645:}
+        1:  645-block  0
+unconditional  0 taken 1
+        -:  646:
+function _ZN8DataBase10FreeMemoryEv called 1 returned 100% blocks executed 100%
+        3:  647:void DataBase::FreeMemory()
+        -:  648:{
+        3:  649:    while (!this->organizations_.empty())
+        3:  649-block  0
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:  649-block  1
+unconditional  3 taken 2
+        -:  650:    {
+        2:  651:        auto *copy = this->organizations_.front();
+        2:  651-block  0
+call    0 returned 2
+        2:  652:        this->organizations_.pop_front();
+call    0 returned 2
+        2:  653:        delete copy;
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        2:  653-block  0
+call    2 returned 2
+call    3 returned 2
+unconditional  4 taken 2
+        -:  654:    }
+        -:  655:
+        3:  656:    while (!this->crimes_.empty())
+        3:  656-block  0
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:  656-block  1
+unconditional  3 taken 2
+        -:  657:    {
+        2:  658:        auto *copy = this->crimes_.front();
+        2:  658-block  0
+call    0 returned 2
+        2:  659:        this->crimes_.pop_front();
+call    0 returned 2
+        2:  660:        delete copy;
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        2:  660-block  0
+call    2 returned 2
+call    3 returned 2
+unconditional  4 taken 2
+        -:  661:    }
+        -:  662:
+        3:  663:    while (!this->criminals_.empty())
+        3:  663-block  0
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:  663-block  1
+unconditional  3 taken 2
+        -:  664:    {
+        2:  665:        auto *copy = this->criminals_.front();
+        2:  665-block  0
+call    0 returned 2
+        2:  666:        this->criminals_.pop_front();
+call    0 returned 2
+        2:  667:        delete copy;
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        2:  667-block  0
+call    2 returned 2
+call    3 returned 2
+unconditional  4 taken 2
+        -:  668:    }
+        1:  669:}
+        -:  670:
+        -:  671:
+        -:  672:#endif //LR7_Z6_2_V27_INTERPOL_CPP

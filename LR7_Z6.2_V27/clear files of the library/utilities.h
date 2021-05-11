@@ -56,18 +56,39 @@ string CrimeTypeToString(const CrimeType &type)
     switch (type)
     {
         case CrimeType::BURGLARY:
-            return "Burglary";
+            return "BURGLARY";
         case CrimeType::ROBBERY:
-            return "Robbery";
+            return "ROBBERY";
         case CrimeType::THEFT:
-            return "Theft";
+            return "THEFT";
         case CrimeType::MURDER:
-            return "Murder";
+            return "MURDER";
         case CrimeType::DRUG_POSSESSION:
-            return "Drug possession";
+            return "DRUG_POSSESSION";
         default:
             return "";
     }
+}
+
+CrimeType StringToCrimeType(const string &type)
+{
+    string a = Trim(type);
+    if (a == "BURGLARY")
+        return CrimeType::BURGLARY;
+
+    if (a == "ROBBERY")
+        return CrimeType::ROBBERY;
+
+    if (a == "THEFT")
+        return CrimeType::THEFT;
+
+    if (a == "MURDER")
+        return CrimeType::MURDER;
+
+    if (a == "DRUG_POSSESSION")
+        return CrimeType::DRUG_POSSESSION;
+
+    return CrimeType::BURGLARY;
 }
 
 string CriminalStatusToString(const CriminalStatus &status)
@@ -75,14 +96,26 @@ string CriminalStatusToString(const CriminalStatus &status)
     switch (status)
     {
         case CriminalStatus::EX_CRIMINAL:
-            return "Ex-criminal";
+            return "EX_CRIMINAL";
         case CriminalStatus::ACTIVE_CRIMINAL:
-            return "active criminal";
+            return "ACTIVE_CRIMINAL";
         case CriminalStatus::PRISONER_CRIMINAL:
-            return "prisoner";
+            return "PRISONER_CRIMINAL";
         default:
             return "";
     }
+}
+
+CriminalStatus StringToCriminalStatus(const string &str)
+{
+    if (str == "PRISONER_CRIMINAL")
+        return CriminalStatus::PRISONER_CRIMINAL;
+
+    if (str == "ACTIVE_CRIMINAL")
+        return CriminalStatus::ACTIVE_CRIMINAL;
+
+    if (str == "EX_CRIMINAL")
+        return CriminalStatus::EX_CRIMINAL;
 }
 
 #endif //LR7_Z6_2_V27_UTILITIES_H
