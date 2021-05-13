@@ -1,28 +1,23 @@
-name: C/C++ CI
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+name: Codecov
+on: [push, pull_request]
 jobs:
-  build:
-    
+  run:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Fetch
-      uses: actions/checkout@master
-    - uses: actions/checkout@v2
-    - name: compile and test
-      run: | 
-        cd LR7_Z6.2_V27/
-        g++ -ftest-coverage -fprofile-arcs -O0 -o test test.cpp interpol.cpp
-        ./test
-        gcov -abcfu interpol.cpp
-    - name: Upload
-      uses: codecov/codecov-action@v1
-      with: 
-       files: |
-         ./LR7_Z6.2_V27/interpol.cpp.gcov
+      - name: Fetch
+        uses: actions/checkout@master
+      - name: Test
+        run: |
+          cd ./LR7_Z6.2_V27
+          g++ -ftest-coverage -fprofile-arcs -O0 -o test test.cpp crime.cpp criminal.cpp organization.cpp utilities.cpp interpol.cpp
+          ./test
+          gcov -abcfu crime.cpp criminal.cpp organization.cpp utilities.cpp interpol.cpp
+      - name: Upload
+        uses: codecov/codecov-action@v1
+        with:
+          files: |
+                 ./LR7_Z6.2_V27/crime.cpp.gcov
+                 ./LR7_Z6.2_V27/criminal.cpp.gcov
+                 ./LR7_Z6.2_V27/organization.cpp.gcov
+                 ./LR7_Z6.2_V27/utilities.cpp.gcov
+                 ./LR7_Z6.2_V27/interpol.cpp.gcov
