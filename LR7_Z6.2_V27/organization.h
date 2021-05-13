@@ -11,15 +11,11 @@
 
 using namespace std;
 
-// название, род деятельности, рейтинг опасности
-
-
 class Organization
 {
 public:
     static const unsigned short kMinimumPossibleRating = 1,
             kMaximumPossibleRating = 10;
-    static const unsigned short kDefaultRating = 0;
 
     static const unsigned short kMinimumIdLength = 5,
             kMaximumIdLength = 20;
@@ -44,20 +40,22 @@ public:
 
     list<CrimeType> CrimeTypes() const;
 
-    friend ostream &operator<<(ostream &, const Organization &);
-
-    void SetId(const string &id)
+    bool SetId(const string &id)
     {
         if (!all_ids_.count(id))
         {
             this->id_ = id;
             all_ids_.insert(id);
         }
+
+        return true;
     }
 
-    void AddIdToAll(const string &id)
+    bool AddIdToAll(const string &id)
     {
         all_ids_.insert(id);
+
+        return true;
     }
 
 private:

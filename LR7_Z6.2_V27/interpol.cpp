@@ -1,33 +1,37 @@
 #include "interpol.h"
 
-void DataBase::RemoveCriminal(CriminalPerson *to_remove)
+bool DataBase::RemoveCriminal(CriminalPerson *to_remove)
 {
     if (to_remove == nullptr ||
         find(begin(this->criminals_), end(this->criminals_), to_remove) == end(this->criminals_))
-        return;
+        return true;
 
     this->criminals_ids_.erase(to_remove->Id());
     this->criminals_.remove(to_remove);
+    return true;
 }
 
-void DataBase::RemoveCrime(Crime *to_remove)
+bool DataBase::RemoveCrime(Crime *to_remove)
 {
     if (to_remove == nullptr ||
         find(begin(this->crimes_), end(this->crimes_), to_remove) == end(this->crimes_))
-        return;
+        return true;
 
     this->crimes_ids_.erase(to_remove->Id());
     this->crimes_.remove(to_remove);
+    return true;
 }
 
-void DataBase::RemoveOrganization(Organization *to_remove)
+bool DataBase::RemoveOrganization(Organization *to_remove)
 {
     if (to_remove == nullptr ||
         find(begin(this->organizations_), end(this->organizations_), to_remove) == end(this->organizations_))
-        return;
+        return true;
 
     this->organizations_ids_.erase(to_remove->Id());
     this->organizations_.remove(to_remove);
+
+    return true;
 }
 
 bool DataBase::AddCriminal(CriminalPerson *to_add)
@@ -171,15 +175,16 @@ void DataBase::ReadCrimes()
     }
 }
 
-void DataBase::Start()
+bool DataBase::Start()
 {
     this->OpenReadFile();
     this->ReadOrganizations();
     this->ReadCriminals();
     this->ReadCrimes();
+    return true;
 }
 
-void DataBase::Finish()
+bool DataBase::Finish()
 {
     this->CloseReadFile();
     this->OpenWriteFile();
@@ -188,6 +193,7 @@ void DataBase::Finish()
     this->WriteCrimes();
     this->CloseWriteFile();
     this->FreeMemory();
+    return true;
 }
 
 void DataBase::WriteOrganizations()

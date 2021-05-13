@@ -22,16 +22,6 @@ CriminalPerson::CriminalPerson(const string &name, const string &surname, const 
     all_ids_.insert(id);
 }
 
-ostream &operator<<(ostream &os, const CriminalPerson &person)
-{
-    os << "[\n";
-    os << "\tName: " << (!person.name_.empty() ? person.name_ : "UNKNOWN") << '\n';
-    os << "\tSurname: " << (!person.surname_.empty() ? person.surname_ : "UNKNOWN") << '\n';
-    os << "\tStatus: " << CriminalStatusToString(person.status_) << '\n';
-    os << "]\n";
-
-    return os;
-}
 
 void CriminalPerson::IncludeToCriminalOrganization(Organization *new_organization)
 {

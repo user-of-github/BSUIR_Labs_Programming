@@ -33,8 +33,6 @@ public:
 
     void IncludeToCriminalOrganization(Organization *);
 
-    friend ostream &operator<<(ostream &, const CriminalPerson &);
-
     string FullName() const;
 
     list<Organization *> &Organizations();

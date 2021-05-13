@@ -8,7 +8,7 @@ int main()
 {
     auto db = DataBase();
 
-    db.Start();
+    assert(db.Start() == true);
 
     db.AddCriminal(new CriminalPerson("Kek", "Surname", "tijieverahuthguhtugandisrhfnikita",
                                       CriminalStatus::PRISONER_CRIMINAL));
@@ -32,13 +32,27 @@ int main()
     assert(LeftTrim("   ghetugh   ") == "ghetugh   ");
     assert(RightTrim("  ghetugh   ") == "  ghetugh");
 
+    assert(StringToCriminalStatus(Trim("EX_CRIMINAL ")) == CriminalStatus::EX_CRIMINAL);
+    assert(CriminalStatusToString(CriminalStatus::EX_CRIMINAL) == "EX_CRIMINAL");
+    assert(CrimeTypeToString(CrimeType::THEFT) == "THEFT");
+    assert(StringToCrimeType(LeftTrim("  MURDER")) == CrimeType::MURDER);
+
 
     assert(db.FindOrganizationById("srkfh8545")->UpdateRating(7) == true);
     assert(db.FindOrganizationById("srkfh8545")->ChangeTitle("Mafia") == true);
     assert(db.FindOrganizationById("srkfh8545")->Id() == "srkfh8545");
     assert(db.FindOrganizationById("srkfh8545")->AddActionsType(CrimeType::THEFT) == true);
+    assert(db.FindCrimeById("228113337")->AddParticipant(db.FindCriminalById("24878dj")) == true);
 
-    db.Finish();
+    assert(db.RemoveCrime(db.FindCrimeById("228113337")) == true);
+    assert(db.RemoveCriminal(db.FindCriminalById("24878dj")) == true);
+    assert(db.RemoveOrganization(db.FindOrganizationById("srkfh8545")) == true);
+
+    assert(db.AddOrganization(new Organization("testOrg", list<CrimeType>({CrimeType::BURGLARY}), 2, "VeraNikita")) ==
+           true);
+    assert(db.FindOrganizationById("VeraNikita")->SetId("NikitaVera") == true);
+
+    assert(db.Finish() == true);
 
     return 0;
 }

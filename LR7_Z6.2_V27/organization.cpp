@@ -53,20 +53,6 @@ bool Organization::UpdateRating(const unsigned short &rating)
     return true;
 }
 
-ostream &operator<<(ostream &os, const Organization &organization)
-{
-    os << "Title: " << organization.title_ << "\n";
-    os << "Types of crimes: [ ";
-    for (const auto item : organization.action_types_)
-        os << CrimeTypeToString(item) << " ; ";
-    os << "]\n";
-    os << "Rating: ";
-    for (unsigned short counter = 0; counter < organization.rating_; ++counter)
-        os << "★";
-    os << "\n";
-
-    return os;
-}
 
 string Organization::Title() const noexcept
 {

@@ -18,15 +18,12 @@ using namespace std;
 class DataBase
 {
 public:
-    const CriminalPerson emptyPerson = CriminalPerson("", " ");
-    const Crime emptyCrime = Crime("", list<CriminalPerson *>(), "", "");
-    const Organization emptyOrganization = Organization("", list<CrimeType>(), 0);
 
-    void RemoveCriminal(CriminalPerson *);
+    bool RemoveCriminal(CriminalPerson *);
 
-    void RemoveCrime(Crime *);
+    bool RemoveCrime(Crime *);
 
-    void RemoveOrganization(Organization *);
+    bool RemoveOrganization(Organization *);
 
     bool AddCriminal(CriminalPerson *);
 
@@ -40,9 +37,9 @@ public:
 
     Organization *FindOrganizationById(const string &);
 
-    void Start();
+    bool Start();
 
-    void Finish();
+    bool Finish();
 
 private:
     list<CriminalPerson *> criminals_;
