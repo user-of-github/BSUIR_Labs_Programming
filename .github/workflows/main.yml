@@ -15,7 +15,8 @@ jobs:
       - name: Upload
         uses: codecov/codecov-action@v1
         with:
-          files: ./LR7_Z6.2_V27/crime.cpp.gcov
+          files: |
+                 ./LR7_Z6.2_V27/crime.cpp.gcov
                  ./LR7_Z6.2_V27/criminal.cpp.gcov
                  ./LR7_Z6.2_V27/organization.cpp.gcov
                  ./LR7_Z6.2_V27/utilities.cpp.gcov
