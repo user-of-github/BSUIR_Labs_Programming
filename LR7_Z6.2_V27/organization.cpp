@@ -1,84 +1,4 @@
-#ifndef LR7_Z6_2_V27_ORGANIZATION_H
-#define LR7_Z6_2_V27_ORGANIZATION_H
-
-#pragma once
-
-#include <list>
-#include <algorithm>
-#include <set>
-#include <ctime>
-#include "utilities.h"
-
-using std::list;
-using std::string;
-using std::find_if;
-using std::begin;
-using std::end;
-using std::ostream;
-using std::set;
-using std::time;
-
-// название, род деятельности, рейтинг опасности
-
-
-class Organization
-{
-public:
-    static const unsigned short kMinimumPossibleRating = 1,
-            kMaximumPossibleRating = 10;
-    static const unsigned short kDefaultRating = 0;
-
-    static const unsigned short kMinimumIdLength = 5,
-            kMaximumIdLength = 20;
-
-    constexpr static bool IsSuitableRating(const unsigned short &);
-
-    Organization(const string &, const list<CrimeType> &, const unsigned short &);
-
-    Organization(const string &, const list<CrimeType> &, const unsigned short &, const string &);
-
-    void ChangeTitle(string);
-
-    void AddActionsType(const CrimeType &);
-
-    void UpdateRating(const unsigned short &);
-
-    string Title() const noexcept;
-
-    string Id() const noexcept;
-
-    unsigned short Rating() const;
-
-    list<CrimeType> CrimeTypes() const;
-
-    friend ostream &operator<<(ostream &, const Organization &);
-
-    void SetId(const string &id)
-    {
-        if (!all_ids_.contains(id))
-        {
-            this->id_ = id;
-            all_ids_.insert(id);
-        }
-    }
-
-    void AddIdToAll(const string &id)
-    {
-        all_ids_.insert(id);
-    }
-
-private:
-    static set<string> all_ids_;
-    string title_;
-    unsigned short rating_;
-    string id_;
-    list<CrimeType> action_types_;
-
-    static bool CheckIfIdExists(const string &) noexcept;
-
-    static string GenerateId(const size_t &) noexcept;
-
-};
+#include "organization.h"
 
 
 set<string> Organization::all_ids_;
@@ -105,26 +25,32 @@ Organization::Organization(const string &title, const list<CrimeType> &action_ty
     all_ids_.insert(id);
 }
 
-void Organization::ChangeTitle(string title)
+bool Organization::ChangeTitle(string title)
 {
     title = Trim(title);
 
     if (!title.empty())
         this->title_ = title;
+
+    return true;
 }
 
-void Organization::AddActionsType(const CrimeType &action_type)
+bool Organization::AddActionsType(const CrimeType &action_type)
 {
     if (find_if(begin(this->action_types_), end(this->action_types_),
                 [&](const auto &type) { return type == action_type; }) !=
         end(this->action_types_))
         this->action_types_.push_back(action_type);
+
+    return true;
 }
 
-void Organization::UpdateRating(const unsigned short &rating)
+bool Organization::UpdateRating(const unsigned short &rating)
 {
     if (this->IsSuitableRating(rating))
         this->rating_ = rating;
+
+    return true;
 }
 
 ostream &operator<<(ostream &os, const Organization &organization)
@@ -190,7 +116,3 @@ string Organization::Id() const noexcept
 {
     return this->id_;
 }
-
-
-
-#endif //LR7_Z6_2_V27_ORGANIZATION_H

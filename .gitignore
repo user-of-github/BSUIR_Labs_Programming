@@ -11,3 +11,6 @@ CMakeLists.txt
 cmake-build-debug
 *.s
 *.gcno
+.gcno
+*.gcda
+*.gcov

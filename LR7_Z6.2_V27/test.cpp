@@ -1,5 +1,6 @@
 #include "interpol.h"
 #include <cassert>
+#include "utilities.h"
 
 using std::cout;
 

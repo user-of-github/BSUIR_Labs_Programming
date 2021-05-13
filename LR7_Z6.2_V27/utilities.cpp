@@ -1,13 +1,5 @@
-#ifndef LR7_Z6_2_V27_UTILITIES_H
-#define LR7_Z6_2_V27_UTILITIES_H
+#include "utilities.h"
 
-#pragma once
-
-#include <algorithm>
-
-using std::string;
-using std::find_first_of;
-using std::isspace;
 
 string LeftTrim(string s)
 {
@@ -16,7 +8,8 @@ string LeftTrim(string s)
     }));
 
     return s;
-};
+}
+
 
 string RightTrim(string s)
 {
@@ -35,21 +28,6 @@ string Trim(string s)
     return s;
 }
 
-enum class CrimeType
-{
-    DRUG_POSSESSION,
-    ROBBERY,
-    THEFT,
-    BURGLARY,
-    MURDER
-};
-
-enum class CriminalStatus
-{
-    ACTIVE_CRIMINAL,
-    EX_CRIMINAL,
-    PRISONER_CRIMINAL
-};
 
 string CrimeTypeToString(const CrimeType &type)
 {
@@ -117,5 +95,3 @@ CriminalStatus StringToCriminalStatus(const string &str)
     if (str == "EX_CRIMINAL")
         return CriminalStatus::EX_CRIMINAL;
 }
-
-#endif //LR7_Z6_2_V27_UTILITIES_H
