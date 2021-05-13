@@ -31,7 +31,7 @@ public:
     CriminalPerson(const string &, const string &, const string &,
                    const CriminalStatus & = CriminalStatus::ACTIVE_CRIMINAL);
 
-    void IncludeToCriminalOrganization(Organization *);
+    bool IncludeToCriminalOrganization(Organization *);
 
     string FullName() const;
 

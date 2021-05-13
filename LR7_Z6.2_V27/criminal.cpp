@@ -23,9 +23,10 @@ CriminalPerson::CriminalPerson(const string &name, const string &surname, const 
 }
 
 
-void CriminalPerson::IncludeToCriminalOrganization(Organization *new_organization)
+bool CriminalPerson::IncludeToCriminalOrganization(Organization *new_organization)
 {
     this->organizations_.push_back(new_organization);
+    return true;
 }
 
 string CriminalPerson::FullName() const

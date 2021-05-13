@@ -36,7 +36,7 @@ bool DataBase::RemoveOrganization(Organization *to_remove)
 
 bool DataBase::AddCriminal(CriminalPerson *to_add)
 {
-    if (criminals_ids_.count(to_add->Id()))
+    if (this->criminals_ids_.count(to_add->Id()))
         return true;
 
     this->criminals_.push_back(to_add);
@@ -46,7 +46,7 @@ bool DataBase::AddCriminal(CriminalPerson *to_add)
 
 bool DataBase::AddCrime(Crime *to_add)
 {
-    if (crimes_ids_.count(to_add->Id()))
+    if (this->crimes_ids_.count(to_add->Id()))
         return true;
 
     this->crimes_.push_back(to_add);
@@ -56,6 +56,9 @@ bool DataBase::AddCrime(Crime *to_add)
 
 bool DataBase::AddOrganization(Organization *to_add)
 {
+    if (this->organizations_ids_.count(to_add->Id()))
+        return true;
+
     this->organizations_.push_back(to_add);
     this->organizations_ids_.insert(make_pair(to_add->Id(), to_add));
     return true;
