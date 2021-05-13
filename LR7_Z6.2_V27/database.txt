@@ -1,9 +1,11 @@
-2
-Mafia 2 DRUG_POSSESSION MURDER 7 srkfh8545
+4
 JapaneseYakutza 2 MURDER ROBBERY 7 dhu2021
+testOrg 1 BURGLARY 2 NikitaVera
+testOrg 1 BURGLARY 2 VeraNikita
+Mafia 2 DRUG_POSSESSION MURDER 7 srkfh8545
 2
-Pablo Escobar EX_CRIMINAL 24878dj 2 srkfh8545 dhu2021 
 Kek Surname PRISONER_CRIMINAL tijieverahuthguhtugandisrhfnikita 0 
+Pablo Escobar EX_CRIMINAL 24878dj 2 srkfh8545 dhu2021 
 2
-somePlace 228113337 1 24878dj 1000$_stolen TheLargestBurglaryEver
 Hello rfufhverarfjikita 1 24878dj 1$_stolen Very_very_bad
+somePlace 228113337 1 24878dj 1000$_stolen TheLargestBurglaryEver
