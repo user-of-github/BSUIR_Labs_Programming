@@ -14,7 +14,6 @@ class CriminalPerson;
 class Crime
 {
 public:
-    Crime(const string &, const list<CriminalPerson *> &, const string &, const string &);
 
     Crime(const string &, const string &, const list<CriminalPerson *> &, const string &, const string &);
 
@@ -40,10 +39,6 @@ private:
     string consequences_;
     string experts_comments_;
     string id_;
-
-    static string GenerateId(const size_t &length) noexcept;
-
-    static bool CheckIfIdExists(const string &check) noexcept;
 };
 
 

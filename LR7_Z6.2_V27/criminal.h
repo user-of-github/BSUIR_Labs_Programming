@@ -26,7 +26,6 @@ class Crime;
 class CriminalPerson
 {
 public:
-    CriminalPerson(const string &, const string &, const CriminalStatus & = CriminalStatus::ACTIVE_CRIMINAL);
 
     CriminalPerson(const string &, const string &, const string &,
                    const CriminalStatus & = CriminalStatus::ACTIVE_CRIMINAL);
@@ -45,22 +44,13 @@ private:
 
     static set<string> all_ids_;
 
-    static const unsigned short
-            kMinimumIdLength = 5,
-            kMaximumIdLength = 20;
-
     string name_,
             surname_;
     string id_;
 
     list<Organization *> organizations_;
     CriminalStatus status_;
-
-    static bool CheckIfIdExists(const string &) noexcept;
-
-    static string GenerateId(const size_t &) noexcept;
 };
-
 
 
 #endif //LR7_Z6_2_V27_CRIMINAL_H

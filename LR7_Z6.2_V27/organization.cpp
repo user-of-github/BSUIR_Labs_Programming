@@ -10,14 +10,6 @@ constexpr bool Organization::IsSuitableRating(const unsigned short &rating)
 }
 
 Organization::Organization(const string &title, const list<CrimeType> &action_types,
-                           const unsigned short &rating) :
-        title_(title), action_types_(action_types), rating_(rating)
-{
-    this->id_ = GenerateId(kMaximumIdLength + rand() % (kMaximumIdLength - kMinimumIdLength));
-    all_ids_.insert(id_);
-}
-
-Organization::Organization(const string &title, const list<CrimeType> &action_types,
                            const unsigned short &rating, const string &id) :
         title_(title), action_types_(action_types), rating_(rating)
 {
@@ -67,35 +59,6 @@ unsigned short Organization::Rating() const
 list<CrimeType> Organization::CrimeTypes() const
 {
     return this->action_types_;
-}
-
-
-bool Organization::CheckIfIdExists(const string &check) noexcept
-{
-    return (find(begin(Organization::all_ids_), end(Organization::all_ids_), check) != end(Organization::all_ids_));
-}
-
-string Organization::GenerateId(const size_t &length) noexcept
-{
-    static const string kSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-    static const size_t kSymbolsNumber = kSymbols.size();
-
-    string response;
-
-    srand(time(NULL));
-
-    for (size_t counter = 0; counter < length; ++counter)
-        response += kSymbols[rand() % kSymbolsNumber];
-
-    while (CheckIfIdExists(response))
-    {
-        response = "";
-
-        for (size_t counter = 0; counter < length; ++counter)
-            response += kSymbols[rand() % kSymbolsNumber];
-    }
-
-    return response;
 }
 
 string Organization::Id() const noexcept

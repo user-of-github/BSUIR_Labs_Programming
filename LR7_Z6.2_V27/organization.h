@@ -17,12 +17,7 @@ public:
     static const unsigned short kMinimumPossibleRating = 1,
             kMaximumPossibleRating = 10;
 
-    static const unsigned short kMinimumIdLength = 5,
-            kMaximumIdLength = 20;
-
     constexpr static bool IsSuitableRating(const unsigned short &);
-
-    Organization(const string &, const list<CrimeType> &, const unsigned short &);
 
     Organization(const string &, const list<CrimeType> &, const unsigned short &, const string &);
 
@@ -64,11 +59,6 @@ private:
     unsigned short rating_;
     string id_;
     list<CrimeType> action_types_;
-
-    static bool CheckIfIdExists(const string &) noexcept;
-
-    static string GenerateId(const size_t &) noexcept;
-
 };
 
 
