@@ -1,3 +1,0 @@
-C:/Users/User/Desktop/Other/HomeWork/Programming/LR1_Z1.2_V23/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/User/Desktop/Other/HomeWork/Programming/LR1_Z1.2_V23/cmake-build-debug/CMakeFiles/LR1_Z1_2_V23.dir
-C:/Users/User/Desktop/Other/HomeWork/Programming/LR1_Z1.2_V23/cmake-build-debug/CMakeFiles/edit_cache.dir

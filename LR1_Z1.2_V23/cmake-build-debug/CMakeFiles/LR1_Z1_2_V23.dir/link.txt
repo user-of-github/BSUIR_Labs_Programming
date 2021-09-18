@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2021.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\LR1_Z1_2_V23.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\LR1_Z1_2_V23.dir/objects.a @CMakeFiles\LR1_Z1_2_V23.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\LR1_Z1_2_V23.dir/objects.a -Wl,--no-whole-archive -o LR1_Z1_2_V23.exe -Wl,--out-implib,libLR1_Z1_2_V23.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\LR1_Z1_2_V23.dir\linklibs.rsp
