@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@master
       - name: Test
         run: |
-          cd ./LR7_Z6.2_V27
+          cd ./2_semester/LR7_Z6.2_V27
           g++ -ftest-coverage -fprofile-arcs -O0 -o test test.cpp crime.cpp criminal.cpp organization.cpp utilities.cpp interpol.cpp
           ./test
           gcov -abcfu crime.cpp criminal.cpp organization.cpp utilities.cpp interpol.cpp
@@ -16,8 +16,8 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           files: |
-                 ./LR7_Z6.2_V27/crime.cpp.gcov
-                 ./LR7_Z6.2_V27/criminal.cpp.gcov
-                 ./LR7_Z6.2_V27/organization.cpp.gcov
-                 ./LR7_Z6.2_V27/utilities.cpp.gcov
-                 ./LR7_Z6.2_V27/interpol.cpp.gcov
+                 ./2_semester/LR7_Z6.2_V27/crime.cpp.gcov
+                 ./2_semester/LR7_Z6.2_V27/criminal.cpp.gcov
+                 ./2_semester/LR7_Z6.2_V27/organization.cpp.gcov
+                 ./2_semester/LR7_Z6.2_V27/utilities.cpp.gcov
+                 ./2_semester/LR7_Z6.2_V27/interpol.cpp.gcov
