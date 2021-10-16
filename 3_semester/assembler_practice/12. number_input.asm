@@ -4,7 +4,7 @@
 
 data segment
    number dw ?
-   for_minus dw ?
+   for_minus dw 0
 data ends
     
 code segment
@@ -21,8 +21,6 @@ code segment
             mov number, ax
             xor ax, ax
             mov ax, number
-            cmp ax, 0
-            jnge finish_program
             call print_number
 
         finish_program:
@@ -32,77 +30,55 @@ code segment
 
 
     input_number proc
-        print_start_input_symbol:
-            mov ah, 02h
-            mov dl, '>' ; just a symbol to show active input
-            int 21h
-        
-        input_preparation:
-            mov ax, 1
-            mov for_minus, ax
-            xor di, di ; di = 0
-            xor ax, ax
+        preparations: ; make all necessary registers equal 0
+            mov for_minus, 0
+            xor di, di
             xor dx, dx
             xor cx, cx
+            xor ax, ax
             xor bx, bx
             mov bx, 10
-        
+
         input_symbol:
-            mov ah, 08h ; get key pressed
+            xor ax, ax 
+            mov ah, 01h ; 01h - for inputing one key pressed | result will be in AL
             int 21h
 
-            cmp al, 13 ; al === Enter ?
+            cmp al, 13 ; AL === Enter ?
             je done
-            
-            cmp al, '-' ; !== '-' ?
-            jne skip_minus
-            mov ah, 02h
-            mov dl, al
-            int 21h
-            xor bx, bx
-            mov bx, -1
-            mov for_minus, bx
-            xor bx, bx
-            mov bx, 10
 
-            skip_minus:
-                cmp al, '9'
+            cmp al, '-' ; AL !== '-' ?
+            jne not_minus ; then skip this step
+
+            minus: ; if we are here, it is a minus. Let's compute it
+                mov for_minus, 1
+                jmp input_symbol
+
+            not_minus:
+                cmp al, '9' ; AL > '9' ?
                 ja input_symbol
-                cmp al, 30h ; <=> '0'
+
+                cmp al, '0' ; AL < '0' ?
                 jb input_symbol
 
-                mov ah, 02h
-                mov dl, al
-                int 21h
-
-                sub al, 30h ; <=> '0'
-                xor ah, ah
-                mov cx, ax ; save digit to cx
-                mov ax, di ; move previous result to ax
-
-                mul bx ; ax = ax * bx
-                add ax, cx
-                xor cx, cx
-                mov di, ax
-                xor ax, ax
+                sub al, '0' ; AL -= '0'
+                xor ah, ah ; AH (which was used for int 21h) = 0
+                mov cx, ax ; save recieved digit to CX
+                mov ax, di ; DI stores current total result. So get it to AX
+                mul bx ; MUL uses AX: AX = AX * arg (here - BX) — so we got (curr. result * 10)
+                add ax, cx ; add CX (received digit) to AX | so totally we got: result = result * 10 + current_digit
+                xor cx, cx ; cx = 0 => we will use it upper again, so better to "clean" it
+                mov di, ax ; move current result to DI, where it is stored
                 jmp input_symbol
 
         done:
-            push dx
-            mov dl, ' '
-            mov ah, 02h
-            int 21h
-            xor ax, ax
-            pop dx
-            mov ax, di
-
-            mov bx, for_minus
-            cmp bx, 1
-            jz return
+            mov ax, di ; move total result to AX
+            cmp for_minus, 1 
+            jne return
             neg ax
 
-        return: 
-            ret 
+        return:
+            ret
     input_number endp
 
 

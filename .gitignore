@@ -18,3 +18,5 @@ cmake-build-debug
 *.MAP
 *.obj
 *.OBJ
+*.TR
+*.TD

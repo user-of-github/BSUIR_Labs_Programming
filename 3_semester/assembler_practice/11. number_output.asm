@@ -22,6 +22,7 @@ code segment
             mov ax, bx ; restore it. We can do it with stack, but MOV for registers is much faster
         
         preparation:
+            xor bx, bx
             xor cx, cx ; <=> mov cx, 0 | cx for future loop. It will contain number of digits
             xor dx, dx ; <=> mov dx, 0 | dx is required for div
             mov bx, 10 ; for dividing on bxs
