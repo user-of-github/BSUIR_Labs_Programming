@@ -1,7 +1,5 @@
 .386
-
 .model small   
-
 .stack 100h
 
 data segment use16
@@ -12,12 +10,9 @@ data segment use16
    number_test dw 312
    for_minus dw 0
 
-   aGreaterThanB db 'a > b ', 13, 10, '$'
    action_1_label db '1st action: print((a - b) * c + d) ', 13, 10, '$'
    action_2_label db '2nd action: print((d + a) - (b - c)) ', 13, 10, '$'
    action_3_label db '3rd action: print(a * b - c * d + 4) ', 13, 10, '$'
-
-
 data ends
     
 code segment use16
@@ -40,7 +35,6 @@ code segment use16
 
                 call input_number
                 mov number_c, ax
-
 
                 call input_number
                 mov number_d, ax
@@ -102,7 +96,6 @@ code segment use16
             int 21h
     main_function_name endp
 
-
     input_number proc
         preparations: ; make all necessary registers equal 0
             mov for_minus, 0
@@ -154,7 +147,6 @@ code segment use16
         return:
             ret
     input_number endp
-
 
     print_number proc
         action_for_negative_numbers:
@@ -210,19 +202,7 @@ code ends
 
 end main_function_name
 
-
-; SOURCE PROBLEM STATEMENT
-
-; if (a > b) and (c < d)  
-;       print((a - b) * c + d)  // FIRST ACTION
-; else    
-;       if ((d + a) > (b - c)) or (a == b)  
-;               print((d + a) - (b - c))  // SECOND ACTION
-;       else  
-;               print(b * a - c * d + 4) // THIRD ACTION
-
-
-; REMASTERED:
+; REMASTERED PROBLEM STATEMENT:
 
 ; if (a <= b) goto condition3 // INVERTED CONDITIONS !      
 ; if (c >= d) goto condition3 
@@ -238,24 +218,3 @@ end main_function_name
 
 ;       third_action: 
 ;                print(b * a - c * d + 4) // THIRD ACTION
-
-
-; DEVELOPER'S TESTS PACK:
-
-;   FOR ACTION 1:
-;           -50 -70 -60 10 => -1190     |   ✓
-;           0 -10 -10 0 => -100         |   ✓
-;           1 0 0 1 => 1                |   ✓
-;           0 -10 30 1001 => 1301       |   ✓
-
-;   FOR ACTION 2:
-;           10 100 90 30 => 30          |   ✓
-;           0 0 -2 -3 => -5             |   ✓
-;           -100 -100 0 1000 => 1000    |   ✓
-
-;   FOR ACTION 3:
-;           1 100 3 3 => 95             |   ✓
-
-;   OTHER:
-;           10 10 10 10 => 20           |   ✓
-;           -10 -10 -10 -10 => -20      |   ✓
