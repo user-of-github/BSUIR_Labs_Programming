@@ -18,6 +18,16 @@ data segment use16
 
     counter dw 0
     counter2 dw 0
+
+    minimum dw 0
+
+    minimum_row_index dw 0 ; from 0
+    minimum_col_index dw 0 ; from 0
+
+    row_text db 'Row Number: $'
+    col_text db 'Col Number: $'
+    sum_text db 'Sum of row and col: $'
+    sum_text_numeration_from_1 db 'Sum of row and col (counting from 1): $'
 data ends
 
 code segment use16
@@ -46,9 +56,96 @@ code segment use16
 
             call fill_array
 
+            check_input:
+                mov ax, rows_count
+                cmp ax, 100 ; ax - 100
+                jg bad_input
+                cmp ax, 1
+                jl bad_input
 
-            ;call print_array_in_row
-            call print_array_in_matrix
+                mov ax, cols_count
+                cmp ax, 100
+                jg bad_input
+                cmp ax, 1
+                jl bad_input
+
+                mov si, 0
+                mov counter, 0
+
+                check_values:
+                    mov si, counter
+                    imul si, 2
+                    mov ax, array[si]
+                    cmp ax, -100 ; ax - (-100)
+                    jl bad_input
+                    cmp ax, 100 ; ax - 100
+                    jg bad_input
+
+                    inc counter 
+                    mov ax, counter 
+                    cmp ax, general_size ; ax - general_size
+                    jl check_values
+                    jmp solution
+
+
+            solution:
+                call find_minimum
+
+                call get_answer_for_task
+
+                mov dx, offset row_text
+                call cout_string
+    
+                mov dl, 32
+                call cout_char
+        
+                mov ax, minimum_row_index
+                call print_number
+
+                call endline
+
+                mov dx, offset col_text
+                call cout_string
+
+                mov dl, 32
+                call cout_char
+
+                mov ax, minimum_col_index
+                call print_number
+            
+            
+                call endline
+
+                mov dx, offset sum_text
+                call cout_string
+
+                mov dl, 32
+                call cout_char 
+
+                mov ax, minimum_row_index
+                mov bx, minimum_col_index
+                add ax, bx
+
+                call print_number
+
+                mov dl, 10
+                call cout_char
+            
+                mov dx, offset sum_text_numeration_from_1
+                call cout_string
+
+                mov ax, minimum_row_index
+                mov bx, minimum_col_index
+                add ax, bx
+                add ax, 2
+
+                call print_number
+                jmp return_main
+
+        bad_input:
+            mov dx, offset bad_input_message
+            call cout_string
+            jmp return_main
 
         return_main:
             mov ah, 04ch
@@ -192,20 +289,27 @@ code segment use16
             ret
     endp
 
+
+    ; doesn't work
     print_array_in_matrix proc 
         mov counter, 0
         mov counter2, 0
-
+        xor ax, ax
+        xor si, si 
         print_row:
             mov counter2, 0
 
             print_col: ; position = i * cols_count * 2 + j * 2 // where numeration from 1
                 mov si, counter 
-                imul si, cols_count
-                imul si, 2
+                mov bx, cols_count
+                imul si, bx
                 mov ax, counter2
-                imul ax, 2
                 add si, ax
+
+                mov ax, si 
+                ;call print_number
+
+                imul si, 2
 
                 mov ax, array[si]
                 call print_number
@@ -236,8 +340,82 @@ code segment use16
 
     find_minimum proc ; result will be in AX
         mov counter, 0
+        mov si, 0
+        mov ax, array[si]
+        mov minimum, ax
+        xor ax, ax
+
+        check_value:
+            mov si, counter
+            imul si, 2
+            mov ax, array[si]
+            mov bx, minimum 
+            cmp ax, bx ; current - minimum
+            jge continue_finding_minimum
+            mov minimum, ax
+            continue_finding_minimum:
+                inc counter 
+                mov ax, counter 
+                mov bx, general_size
+                cmp ax, bx
+                jl check_value
+                jmp return_find_minimum
+
+        return_find_minimum:
+            mov ah, 02h
+            mov dl, 13
+            int 21h 
+
+            ret
+    endp
+
+    get_answer_for_task proc 
+        xor ax, ax
+        mov counter, 0
+        mov cx, minimum
+
+        find_index_of_minimum:
+            mov si, counter 
+            imul si, 2
+            mov bx, array[si]
+            cmp cx, bx
+            je found_index
+            inc counter 
+            mov ax, counter
+            mov bx, general_size
+            cmp ax, bx ; ax - bx
+            jl find_index_of_minimum
+            jmp found_index
+
+        found_index:
+            xor ax, ax 
+            xor dx, dx
+            mov ax, counter    
+            mov bx, cols_count
+            div bx ; now row is in AX, col is in DX
+            mov minimum_row_index, ax
+            mov minimum_col_index, dx
         ret
     endp
+
+    endline proc
+        mov ah, 02h
+        mov dl, 10
+        int 21h  
+        ret
+    endp 
+
+    cout_char proc 
+        mov ah, 02h
+        int 21h
+        ret
+    endp 
+
+    cout_string proc 
+        mov ah, 09h
+        int 21h
+        ret
+    endp 
 
 code ends
 
