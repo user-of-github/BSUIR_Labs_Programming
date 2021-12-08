@@ -19,6 +19,11 @@ code segment
             input:
                 call input_number
                 mov number, ax
+                cmp ax, 1
+                jne solve
+                mov ax, 0
+                call print_number
+                jmp finish_program
 
             solve:
                 mov ax, number
@@ -94,6 +99,9 @@ code segment
             int 21h
 
             cmp al, 13 ; AL === Enter ?
+            je done
+
+            cmp al, 10 ; AL === Enter ?
             je done
             
             cmp al, '9' ; AL > '9' ?

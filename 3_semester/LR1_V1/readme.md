@@ -26,28 +26,7 @@ __Выходные данные__
 
 Выведите единственное целое число - результат вывода программы. Гарантируется, что результат находится в пределах [-30000; 30000].
 
-&nbsp;  
-__Собственные предварительные тесты:__  
-_DEVELOPER'S TESTS PACK:_
-
-* _FOR ACTION 1:_  
-    * -50 -70 -60 10 => -1190&nbsp;&nbsp;__✓__  
-    * 0 -10 -10 0 => -100&nbsp;&nbsp;__✓__  
-    * 1 0 0 1 => 1 &nbsp;&nbsp;__✓__  
-    * 0 -10 30 1001 => 1301       &nbsp;&nbsp;__✓__  
-
-* _FOR ACTION 2:_  
-    * 10 100 90 30 => 30&nbsp;&nbsp;__✓__  
-    * 0 0 -2 -3 => -5&nbsp;&nbsp;__✓__  
-    * -100 -100 0 1000 => 1000&nbsp;&nbsp;__✓__
-
-* _FOR ACTION 3:_ 
-    * 1 100 3 3 => 95&nbsp;&nbsp;__✓__  
-
-* _OTHER:_  
-    * 10 10 10 10 => 20&nbsp;&nbsp;__✓__  
-    * -10 -10 -10 -10 => -20&nbsp;&nbsp;__✓__  
 
 
 &nbsp;  
-###### © 2021, October | All Rights Reserved
+###### © 2021, October (Fixed for Contest system in December) | All Rights Reserved

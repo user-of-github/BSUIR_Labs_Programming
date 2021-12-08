@@ -22,4 +22,4 @@ __Выходные данные__
 Выведите единственное число - результат выполнения программы.
 
  
-###### © 2021, October | All Rights Reserved
+###### © 2021, October (Fixed for Contest system in December) | All Rights Reserved

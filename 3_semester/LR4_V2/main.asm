@@ -58,13 +58,13 @@ code segment use16
 
             check_input:
                 mov ax, rows_count
-                cmp ax, 100 ; ax - 100
+                cmp ax, 2 ; ax - 100
                 jg bad_input
                 cmp ax, 1
                 jl bad_input
 
                 mov ax, cols_count
-                cmp ax, 100
+                cmp ax, 2
                 jg bad_input
                 cmp ax, 1
                 jl bad_input

@@ -26,6 +26,8 @@ data segment
     will_need_to_compare db 'Okay. Will need to compare for N times = $'
     counter_equals_text db 'Counter = $'
     ; </debug variables>
+
+    flag_for_only_1_string dw 0 ; 1 => was inputed only one string
 data ends
 
 code segment
@@ -38,7 +40,17 @@ code segment
 
         main_part:
             call input_string_1_proc
-            call input_string_2_proc 
+            ;  now checking if after 1st string we inputed \n ;
+            mov ax, flag_for_only_1_string
+            cmp ax, 1
+            jne continue_inputing_string
+            mov ah, 09h
+            mov dx, offset not_appropriate_format
+            int 21h
+            jmp finish_program
+
+            continue_inputing_string: 
+                call input_string_2_proc 
 
 
             ;;;;;;;; CHECK CONDITIONS (letters only and s.length  + t.length <= 200) ;;;;;;;;;;;
@@ -176,13 +188,25 @@ code segment
             cmp al, 32 ; AL === ' ' ?
             je done1
 
-            xor ah, ah ; AH (which was used for int 21h) = 0
-            mov si, counter 
-            mov string1[si], al
-            inc string1_length
-            add counter, 1
+            cmp al, 10 ; al === 10
+            jne further_checking
+            mov flag_for_only_1_string, 1
+            jmp done1
 
-            jmp input_symbol_for_string_1
+            further_checking:
+                cmp al, 13 ; al === 13
+                jne continue_input_1_string
+                mov flag_for_only_1_string, 1
+                jmp done1
+        
+            continue_input_1_string:
+                xor ah, ah ; AH (which was used for int 21h) = 0
+                mov si, counter 
+                mov string1[si], al
+                inc string1_length
+                add counter, 1
+
+                jmp input_symbol_for_string_1
 
         done1: 
             ret 
@@ -197,6 +221,9 @@ code segment
             int 21h
 
             cmp al, 13 ; AL === Enter ?
+            je done2
+
+            cmp al, 10 ; AL === Enter ?
             je done2
 
             xor ah, ah ; AH (which was used for int 21h) = 0
@@ -224,12 +251,14 @@ code segment
         jle length_is_okay
         
         print_that_first_string_is_longer:
-            mov dx, offset found_string_longer_text
-            mov ah, 09h
-            int 21h
-            mov ah, 02h
-            mov dl, 10
-            int 21h
+            ; <debug info - first string is longer>
+            ;mov dx, offset found_string_longer_text
+            ;mov ah, 09h
+            ;int 21h
+            ;mov ah, 02h
+            ;mov dl, 10
+            ;int 21h
+            ; <debug info - first string is longer>
             jmp finish_function
 
         length_is_okay:
@@ -242,16 +271,16 @@ code segment
         mov compare_times, cx
 
         ; <debug info - times to compare substrings>
-        mov ah, 09h
-        mov dx, offset will_need_to_compare
-        int 21h 
+        ;mov ah, 09h
+       ; mov dx, offset will_need_to_compare
+        ;int 21h 
 
-        mov ax, cx
-        call print_number
+        ;mov ax, cx
+        ;call print_number
 
-        mov ah, 02h
-        mov dl, 10
-        int 21h
+        ;mov ah, 02h
+        ;mov dl, 10
+        ;int 21h
         ; </debug info - times to compare substrings>
 
         mov counter2, 0
@@ -259,14 +288,14 @@ code segment
 
         check_symbols:
             ; <debug info counter>
-            mov ah, 09h
-            mov dx, offset counter_equals_text
-            int 21h 
-            mov ax, counter
-            call print_number
-            mov ah, 02h
-            mov dl, 10
-            int 21h
+            ;mov ah, 09h
+            ;mov dx, offset counter_equals_text
+            ;int 21h 
+            ;mov ax, counter
+            ;call print_number
+            ;mov ah, 02h
+            ;mov dl, 10
+            ;int 21h
             ; </ debug info counter>
 
             call check_if_current_substring_equals ; if dx === 1 now then found !
@@ -387,3 +416,4 @@ code segment
 code ends
 
 end main
+--------------------------------------

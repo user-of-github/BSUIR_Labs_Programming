@@ -114,6 +114,9 @@ code segment use16
             cmp al, 13 ; AL === Enter ?
             je done
 
+            cmp al, 10 ; AL === /r ?
+            je done
+
             cmp al, '-' ; AL !== '-' ?
             jne not_minus ; then skip this step
 
