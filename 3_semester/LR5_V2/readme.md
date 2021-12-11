@@ -32,7 +32,7 @@ __Пример:__
 
 
 ## Demo:  
-![Screenshot from DOS-box](capture.PNG)
+![Screenshot from DOS-box](Capture.PNG)
 
  
 ###### © 2021, December | All Rights Reserved
