@@ -27,7 +27,7 @@ code segment use16
             mov si, word ptr cs:[old_interupt]
             mov di, word ptr cs:[old_interupt + 2]
             push si di ds cx bx ax
-            pushf
+            pushf ; push flag register values
             cmp ah, 02h; check if we have necessary function and if no then skip all my additions and go to default one
             jne skip_my_interrupt
 
@@ -94,15 +94,19 @@ code segment use16
         push ds
         mov ax, code
         mov ds, ax
-        mov ah, 35h
-        mov al, 21h
-        int 21h; look for adress in table of interruptions
+
+        mov ah, 35h ; AH=35h - GET INTERRUPT VECTOR
+        mov al, 21h ; Entry: AL = interrupt number
+        int 21h ; Return: ES:BX -> current interrupt handler
+
         mov word ptr old_interupt, bx
         mov word ptr old_interupt + 2, es
-        mov ah, 25h; if equals => then will change to our resident interruption
-        mov al, 21h
-        mov dx, offset custom_input
+
+        mov ah, 25h; AH = 25h - SET INTERRUPT VECTOR
+        mov al, 21h ; AL = interrupt number
+        mov dx, offset custom_input ; DS:DX -> new interrupt handler
         int 21h
+
         pop ds
         jmp proces_program
 
@@ -111,10 +115,12 @@ code segment use16
             push ds
             mov ax, di
             mov ds, ax
-            mov ah, 25h
-            mov al, 21h
-            mov dx, si
+
+            mov ah, 25h; AH = 25h - SET INTERRUPT VECTOR
+            mov al, 21h ; AL = interrupt number
+            mov dx, si  ; DS:DX -> new interrupt handler
             int 21h
+
             pop ds
 
             
