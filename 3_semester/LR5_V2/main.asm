@@ -10,7 +10,7 @@ data segment use16
     buffer_seg dw 0
     buffer_set_off dw 0
     flag_active dw 0
-    global_param db 0
+    global_param db 13
     
 data ends
 
@@ -35,13 +35,13 @@ code segment use16
             mov cs:[param], cl
 
             cmp dl, 97; check that it is small latin letter
-            jb skip_my_interrupt
+            jl skip_my_interrupt
             cmp dl, 122
-            ja skip_my_interrupt
+            jg skip_my_interrupt
             add dl, cs:[param] ; cycle move
             cmp dl, 123
             jle skip_my_interrupt; if result > 123 then -= 32, because it is cycle move
-            sub dl, 32
+            sub dl, 26
             skip_my_interrupt:
                 popf
                 pop ax bx cx ds di si
@@ -58,11 +58,27 @@ code segment use16
             mov ds, ax
 
         ; <taking digit from console arguments>
-        mov si, 82h
-        mov al, es:[si]
-        sub al, 48
-        mov global_param, al
+        check_args_count:
+            mov si, 80h
+            mov al, es:[si]
+            cmp al, 0
+            je set_default_param
+
+        set_shift:    
+            mov si, 82h
+            mov al, es:[si]
+            cmp al, 47
+            jle set_default_param
+            cmp al, 58
+            jge set_default_param
+            sub al, 48
+            mov global_param, al
+            jmp after_checking_console_ars
         ; </taking digit from console arguments>
+        set_default_param:
+            mov global_param, 13
+
+        after_checking_console_ars:
 
         mov dx, offset text_first
         call cout_string
